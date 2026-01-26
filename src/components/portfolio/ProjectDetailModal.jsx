@@ -2,6 +2,8 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { X, Check, ArrowRight, Maximize2, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import { useRef, useState, useEffect, useCallback } from 'react';
 
+import { createPortal } from 'react-dom';
+
 const ProjectDetailModal = ({ project, onClose }) => {
     // Lightbox State: stores index of currently viewed image
     const [lightboxIndex, setLightboxIndex] = useState(null);
@@ -39,7 +41,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
 
     if (!project) return null;
 
-    return (
+    return createPortal(
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -246,7 +248,8 @@ const ProjectDetailModal = ({ project, onClose }) => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </motion.div>
+        </motion.div>,
+        document.body
     );
 };
 
