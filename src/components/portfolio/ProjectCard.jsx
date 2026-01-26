@@ -3,6 +3,50 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const ProjectCard = memo(({ project, index, onClick }) => {
+    // Detect mobile - simplistic check for performance
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+    if (isMobile) {
+        return (
+            <div
+                className="relative w-full h-80 overflow-hidden rounded-sm border border-white/5 bg-black/40 content-visibility-auto"
+                onClick={() => onClick(project)}
+            >
+                <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                    decoding="async"
+                />
+
+                {/* Simple Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+
+                {/* Hardcoded Content for Mobile */}
+                <div className="absolute bottom-0 left-0 w-full p-6">
+                    <div className="flex flex-wrap gap-2 mb-2">
+                        {project.tech.map((t, i) => (
+                            <span key={i} className="text-[10px] font-mono uppercase tracking-wider px-2 py-1 border border-white/10 rounded-full bg-black/50 text-gray-300">
+                                {t}
+                            </span>
+                        ))}
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
+                        {project.title}
+                    </h3>
+
+                    <button
+                        className="mt-2 text-xs font-bold uppercase tracking-widest text-neon-cyan"
+                    >
+                        Zobrazit detail
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    // DESKTOP LOGIC (Original Form)
     const ref = useRef(null);
 
     // 3D Tilt Logic
@@ -16,9 +60,6 @@ const ProjectCard = memo(({ project, index, onClick }) => {
     const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
 
     const handleMouseMove = (e) => {
-        // Disable 3D effect interactions on mobile/touch to prevent event flooding and lag
-        if (window.matchMedia("(hover: none)").matches) return;
-
         const rect = ref.current.getBoundingClientRect();
         const width = rect.width;
         const height = rect.height;
