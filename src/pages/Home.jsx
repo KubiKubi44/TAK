@@ -4,7 +4,7 @@ import TrustedLogos from '../components/TrustedLogos';
 
 const Home = () => {
     return (
-        <div className="min-h-screen overflow-x-hidden relative">
+        <div className="min-h-screen relative">
 
             <Hero3D />
 

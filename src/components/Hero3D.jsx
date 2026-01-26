@@ -51,7 +51,7 @@ const Hero3D = () => {
     return (
         <div
             ref={containerRef}
-            className="relative min-h-[100dvh] w-full flex items-center justify-center touch-pan-y"
+            className="relative min-h-[100dvh] w-full flex items-center justify-center touch-pan-y overflow-hidden"
             style={{ perspective: "600px", perspectiveOrigin: "center center" }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
