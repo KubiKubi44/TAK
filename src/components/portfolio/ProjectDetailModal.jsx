@@ -13,6 +13,14 @@ const ProjectDetailModal = ({ project, onClose }) => {
     const { scrollYProgress } = useScroll({ container: containerRef });
     const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
+    // Defer heavy content rendering
+    const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => {
+        // Delay rendering of heavy content to allow animation to start smoothly
+        const timer = setTimeout(() => setIsMounted(true), 100);
+        return () => clearTimeout(timer);
+    }, []);
+
     // Construct all images array (Hero + Gallery)
     const allImages = project ? [project.image, ...(project.gallery || [])] : [];
 
@@ -46,7 +54,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9999] bg-bg-dark/95 backdrop-blur-md overflow-hidden flex flex-col"
+            className="fixed inset-0 z-[9999] bg-bg-dark/95 md:backdrop-blur-md overflow-hidden flex flex-col"
         >
             {/* Progress Bar */}
             <motion.div style={{ scaleX }} className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow origin-left z-[10000]"></motion.div>
@@ -111,6 +119,9 @@ const ProjectDetailModal = ({ project, onClose }) => {
                     </div>
                 </div>
 
+            </div>
+
+            {isMounted && (
                 <div className="max-w-7xl mx-auto px-6 md:px-20 py-20 space-y-32">
 
                     {/* SECTION 2: OVERVIEW & STATS */}
@@ -193,63 +204,67 @@ const ProjectDetailModal = ({ project, onClose }) => {
                     </div>
 
                 </div>
+
+                </div>
+    )
+}
+            </div >
+
+    {/* LIGHTBOX OVERLAY */ }
+    < AnimatePresence >
+    { lightboxIndex !== null && (
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[10002] bg-black/98 backdrop-blur-xl flex items-center justify-center p-4"
+            onClick={() => setLightboxIndex(null)}
+        >
+            {/* Close Button */}
+            <button
+                className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-50 p-2"
+                onClick={() => setLightboxIndex(null)}
+            >
+                <X size={40} />
+            </button>
+
+            {/* Navigation Buttons */}
+            <button
+                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-neon-cyan transition-colors z-50 p-4 hover:bg-white/5 rounded-full"
+                onClick={handlePrev}
+            >
+                <ChevronLeft size={48} />
+            </button>
+
+            <button
+                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-neon-cyan transition-colors z-50 p-4 hover:bg-white/5 rounded-full"
+                onClick={handleNext}
+            >
+                <ChevronRight size={48} />
+            </button>
+
+            {/* Image Counter */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 font-mono text-xs tracking-widest">
+                {lightboxIndex + 1} / {allImages.length}
             </div>
 
-            {/* LIGHTBOX OVERLAY */}
-            <AnimatePresence>
-                {lightboxIndex !== null && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[10002] bg-black/98 backdrop-blur-xl flex items-center justify-center p-4"
-                        onClick={() => setLightboxIndex(null)}
-                    >
-                        {/* Close Button */}
-                        <button
-                            className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors z-50 p-2"
-                            onClick={() => setLightboxIndex(null)}
-                        >
-                            <X size={40} />
-                        </button>
-
-                        {/* Navigation Buttons */}
-                        <button
-                            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-neon-cyan transition-colors z-50 p-4 hover:bg-white/5 rounded-full"
-                            onClick={handlePrev}
-                        >
-                            <ChevronLeft size={48} />
-                        </button>
-
-                        <button
-                            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-neon-cyan transition-colors z-50 p-4 hover:bg-white/5 rounded-full"
-                            onClick={handleNext}
-                        >
-                            <ChevronRight size={48} />
-                        </button>
-
-                        {/* Image Counter */}
-                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 font-mono text-xs tracking-widest">
-                            {lightboxIndex + 1} / {allImages.length}
-                        </div>
-
-                        {/* Image */}
-                        <motion.img
-                            key={lightboxIndex} // Triggers animation on change
-                            initial={{ scale: 0.95, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.95, opacity: 0 }}
-                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                            src={allImages[lightboxIndex]}
-                            className="max-w-full max-h-screen object-contain shadow-2xl user-select-none"
-                            onClick={(e) => e.stopPropagation()}
-                            alt={`Lightbox View ${lightboxIndex + 1}`}
-                        />
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </motion.div>,
-        document.body
+            {/* Image */}
+            <motion.img
+                key={lightboxIndex} // Triggers animation on change
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                src={allImages[lightboxIndex]}
+                className="max-w-full max-h-screen object-contain shadow-2xl user-select-none"
+                onClick={(e) => e.stopPropagation()}
+                alt={`Lightbox View ${lightboxIndex + 1}`}
+            />
+        </motion.div>
+    )}
+            </AnimatePresence >
+        </motion.div >,
+    document.body
     );
 };
 
