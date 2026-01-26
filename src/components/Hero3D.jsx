@@ -45,7 +45,7 @@ const Hero3D = () => {
     const TEXT = "T&K";
     // Drastically reduce layers on mobile to save GPU
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-    const LAYERS = isMobile ? 5 : 35;
+    const LAYERS = isMobile ? 15 : 35; // Restored 15 layers for mobile to get 3D effect back
     const DEPTH_STEP = 3;
 
     return (
@@ -74,60 +74,45 @@ const Hero3D = () => {
 
                 {/* 3D LAYERS - Overlay exactly on top of the base text */}
                 {/* 3D LAYERS - Overlay exactly on top of the base text */}
+                {/* 3D LAYERS - Overlay exactly on top of the base text */}
                 <div className="absolute inset-0 flex items-center justify-center transform-style-3d pointer-events-none">
-                    {isMobile ? (
-                        // MOBILE: Single static layer, no 3D stack
+                    {/* RENDER FOR ALL DEVICES - Just adjust layer count via constant */}
+                    {[...Array(LAYERS)].map((_, i) => (
                         <span
-                            className="absolute inset-0 flex items-center justify-center w-full h-full text-center text-transparent bg-clip-text animate-rgb-flow drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+                            key={i}
+                            className="absolute inset-0 flex items-center justify-center w-full h-full text-center"
                             style={{
-                                backgroundImage: `
-                                    linear-gradient(to bottom, transparent 2px, rgba(0,0,0,0.5) 2px, rgba(0,0,0,0.5) 4px, transparent 4px),
-                                    linear-gradient(to right, #04FFF7, #F704FF, #FFF704)
-                                `,
-                                backgroundSize: '100% 4px, 200% 200%'
+                                transform: `translateZ(-${i * DEPTH_STEP}px) scaleX(1.15)`,
                             }}
                         >
-                            {TEXT}
+                            {i === 0 ? (
+                                <span
+                                    className="text-transparent bg-clip-text animate-rgb-flow drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+                                    style={{
+                                        backgroundImage: `
+                                            linear-gradient(to bottom, transparent 2px, rgba(0,0,0,0.5) 2px, rgba(0,0,0,0.5) 4px, transparent 4px),
+                                            linear-gradient(to right, #04FFF7, #F704FF, #FFF704)
+                                        `,
+                                        backgroundSize: '100% 4px, 200% 200%'
+                                    }}
+                                >
+                                    {TEXT}
+                                </span>
+                            ) : (
+                                <span
+                                    className="text-black"
+                                    style={{
+                                        color: '#032022',
+                                        WebkitTextStroke: '1px rgba(4, 255, 247, 0.4)',
+                                        paintOrder: 'stroke fill',
+                                        textShadow: '0 0 2px rgba(4, 255, 247, 0.3)'
+                                    }}
+                                >
+                                    {TEXT}
+                                </span>
+                            )}
                         </span>
-                    ) : (
-                        // DESKTOP: Full 3D Stack
-                        [...Array(LAYERS)].map((_, i) => (
-                            <span
-                                key={i}
-                                className="absolute inset-0 flex items-center justify-center w-full h-full text-center"
-                                style={{
-                                    transform: `translateZ(-${i * DEPTH_STEP}px) scaleX(1.15)`,
-                                }}
-                            >
-                                {i === 0 ? (
-                                    <span
-                                        className="text-transparent bg-clip-text animate-rgb-flow drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
-                                        style={{
-                                            backgroundImage: `
-                                                linear-gradient(to bottom, transparent 2px, rgba(0,0,0,0.5) 2px, rgba(0,0,0,0.5) 4px, transparent 4px),
-                                                linear-gradient(to right, #04FFF7, #F704FF, #FFF704)
-                                            `,
-                                            backgroundSize: '100% 4px, 200% 200%'
-                                        }}
-                                    >
-                                        {TEXT}
-                                    </span>
-                                ) : (
-                                    <span
-                                        className="text-black"
-                                        style={{
-                                            color: '#032022',
-                                            WebkitTextStroke: '1px rgba(4, 255, 247, 0.4)',
-                                            paintOrder: 'stroke fill',
-                                            textShadow: '0 0 2px rgba(4, 255, 247, 0.3)'
-                                        }}
-                                    >
-                                        {TEXT}
-                                    </span>
-                                )}
-                            </span>
-                        ))
-                    )}
+                    ))}
                 </div>
 
             </motion.div >

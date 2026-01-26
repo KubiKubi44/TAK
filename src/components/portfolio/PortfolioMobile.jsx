@@ -5,8 +5,12 @@ const PortfolioMobile = ({ projects, onSelect }) => {
     return (
         <div className="flex flex-col gap-12 pb-20">
             {projects.map((project, index) => (
-                <div
+                <motion.div
                     key={project.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="relative flex flex-col gap-4"
                 >
                     {/* Index & Category */}
@@ -58,7 +62,7 @@ const PortfolioMobile = ({ projects, onSelect }) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             ))}
 
             {/* Simple decoration */}
