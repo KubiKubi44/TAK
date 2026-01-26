@@ -159,16 +159,14 @@ const PortfolioGrid = () => {
                 <motion.div
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                 >
-                    <AnimatePresence>
-                        {filteredProjects.map((project, index) => (
-                            <ProjectCard
-                                key={project.id}
-                                project={project}
-                                index={index}
-                                onClick={setSelectedProject}
-                            />
-                        ))}
-                    </AnimatePresence>
+                    {filteredProjects.map((project, index) => (
+                        <ProjectCard
+                            key={project.id}
+                            project={project}
+                            index={index}
+                            onClick={setSelectedProject}
+                        />
+                    ))}
                 </motion.div>
 
                 {/* Detail Modal */}

@@ -43,7 +43,9 @@ const Hero3D = () => {
 
     // The text to render
     const TEXT = "T&K";
-    const LAYERS = 35; // Increased for smoother 3D
+    // Drastically reduce layers on mobile to save GPU
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const LAYERS = isMobile ? 5 : 35;
     const DEPTH_STEP = 3;
 
     return (
