@@ -26,11 +26,11 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Domů', href: '/' },
-    { name: 'O nás', href: '/about' },
-    { name: 'Služby', href: '/services' },
+    { name: 'O nás', href: '/o-nas' },
+    { name: 'Služby', href: '/sluzby' },
     { name: 'Portfolio', href: '/portfolio' },
-    // { name: 'Proces', href: '/process' },
-    { name: 'Kontakt', href: '/contact' },
+    // { name: 'Proces', href: '/proces' },
+    { name: 'Kontakt', href: '/kontakt' },
   ];
 
   return (
@@ -95,7 +95,7 @@ const Navbar = () => {
 
       {/* Bottom Right: CTA */}
       <div className="fixed bottom-0 right-0 p-8 z-50 hidden md:block">
-        <Link to="/contact" className="group flex items-center gap-4">
+        <Link to="/kontakt" className="group flex items-center gap-4">
           <span className="font-bold tracking-widest uppercase text-sm text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow">
             Zahájit projekt
           </span>
@@ -174,8 +174,8 @@ const Navbar = () => {
 
                 <div>
                   <h3 className="text-gray-500 font-mono mb-4 text-sm tracking-widest">KONTAKT</h3>
-                  <a href="mailto:info@tak.cz" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow">
-                    info@tak.cz
+                  <a href="mailto:info@itakk.cz" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow">
+                    info@itakk.cz
                   </a>
                 </div>
               </div>

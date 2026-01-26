@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
+import { createPortal } from 'react-dom';
 
 const CustomCursor = () => {
     // RAW motion values for instant response (No Spring)
@@ -8,8 +9,10 @@ const CustomCursor = () => {
 
     const [isHovering, setIsHovering] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         const moveCursor = (e) => {
             cursorX.set(e.clientX);
             cursorY.set(e.clientY);
@@ -49,9 +52,10 @@ const CustomCursor = () => {
         return null;
     }
 
-    return (
-        <div className="pointer-events-none fixed inset-0 z-[2147483647] overflow-hidden hidden md:block">
+    if (!mounted) return null;
 
+    return createPortal(
+        <div className="pointer-events-none fixed inset-0 z-[2147483647] overflow-hidden hidden md:block">
             <motion.div
                 className="absolute top-0 left-0 flex items-center justify-center rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]"
                 style={{
@@ -72,7 +76,8 @@ const CustomCursor = () => {
                     ease: "easeInOut"
                 }}
             />
-        </div>
+        </div>,
+        document.body
     );
 };
 

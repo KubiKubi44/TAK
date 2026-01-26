@@ -38,11 +38,11 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/o-nas" element={<AboutPage />} />
+            <Route path="/sluzby" element={<ServicesPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
-            <Route path="/process" element={<ProcessPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/proces" element={<ProcessPage />} />
+            <Route path="/kontakt" element={<ContactPage />} />
           </Routes>
         </main>
 

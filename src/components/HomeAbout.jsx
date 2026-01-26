@@ -32,7 +32,7 @@ const HomeAbout = () => {
                             Specializujeme se na vysoce výkonné webové aplikace, 3D interaktivní zážitky a futuristický branding. Naším posláním je spojit umění a inženýrství do jedinečného, silného vyjádření vaší identity.
                         </p>
 
-                        <a href="/about" className="group inline-flex items-center gap-2 text-neon-cyan font-mono uppercase tracking-widest hover:text-white transition-colors">
+                        <a href="/o-nas" className="group inline-flex items-center gap-2 text-neon-cyan font-mono uppercase tracking-widest hover:text-white transition-colors">
                             <span>Více o nás</span>
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </a>

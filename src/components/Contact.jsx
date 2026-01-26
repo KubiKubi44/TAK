@@ -41,7 +41,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold mb-3">Napište nám</h4>
-                                    <a href="mailto:info@tak.cz" className="text-gray-300 font-bold text-lg hover:text-neon-cyan transition-colors">info@tak.cz</a>
+                                    <a href="mailto:info@itakk.cz" className="text-gray-300 font-bold text-lg hover:text-neon-cyan transition-colors">info@itakk.cz</a>
                                 </div>
                             </div>
 

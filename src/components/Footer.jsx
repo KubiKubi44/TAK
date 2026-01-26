@@ -18,8 +18,8 @@ const Footer = () => {
                         <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow font-mono text-xs uppercase tracking-widest border-b border-neon-cyan/20 pb-2 inline-block">Rychlé odkazy</h4>
                         <ul className="space-y-3 font-mono text-gray-400">
                             <li><Link to="/" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">Domů</Link></li>
-                            <li><Link to="/about" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">O nás</Link></li>
-                            <li><Link to="/services" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">Služby</Link></li>
+                            <li><Link to="/o-nas" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">O nás</Link></li>
+                            <li><Link to="/sluzby" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">Služby</Link></li>
                         </ul>
                     </div>
 
