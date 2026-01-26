@@ -120,9 +120,16 @@ const ProjectCard = memo(({ project, index, onClick }) => {
                             <h3 className="text-3xl font-bold text-white mb-2 leading-tight group-hover:text-neon-cyan transition-colors">
                                 {project.title}
                             </h3>
-                            <p className="text-gray-400 text-sm line-clamp-2 group-hover:text-white transition-colors duration-300">
+                            <p className="text-gray-400 text-sm line-clamp-2 number-of-lines-2 group-hover:text-white transition-colors duration-300 mb-4">
                                 {project.description}
                             </p>
+
+                            {/* Mobile Detail Button - Always visible on mobile, hidden on desktop until hover ?? Actually user wants explicit button */}
+                            <div className="md:hidden mt-2">
+                                <button className="px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/50 rounded-full text-neon-cyan text-xs font-bold uppercase tracking-widest backdrop-blur-md">
+                                    Zobrazit detail
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
