@@ -52,6 +52,11 @@ const CustomCursor = () => {
         return null;
     }
 
+    // Additional window width check just in case
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+        return null;
+    }
+
     if (!mounted) return null;
 
     return createPortal(

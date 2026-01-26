@@ -7,6 +7,12 @@ const ProjectDetailModal = ({ project, onClose }) => {
     // Lightbox State: stores index of currently viewed image
     const [lightboxIndex, setLightboxIndex] = useState(null);
 
+    // Mobile Check
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        setIsMobile(typeof window !== 'undefined' && window.innerWidth < 768);
+    }, []);
+
     // Scroll handling for internal modal content
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({ container: containerRef });
@@ -159,8 +165,8 @@ const ProjectDetailModal = ({ project, onClose }) => {
                             </div>
                         </div>
 
-                        {/* SECTION 4: UI SHOWCASE */}
-                        {project.gallery && (
+                        {/* SECTION 4: UI SHOWCASE - DESKTOP ONLY */}
+                        {!isMobile && project.gallery && (
                             <div>
                                 <h3 className="text-xs font-mono text-gray-500 mb-8 uppercase tracking-widest text-center">Vizuální systém</h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -171,7 +177,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
                                             // Index offset by 1 because 0 is the hero image
                                             onClick={() => setLightboxIndex(i + 1)}
                                         >
-                                            <img src={img} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" alt={`Detail ${i}`} />
+                                            <img src={img} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" alt={`Detail ${i}`} loading="lazy" decoding="async" />
                                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                                                 <Maximize2 className="text-white drop-shadow-md" size={32} />
                                             </div>
@@ -183,7 +189,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
                                         className="mt-8 h-[500px] bg-gray-800 rounded-xl overflow-hidden relative group cursor-zoom-in"
                                         onClick={() => setLightboxIndex(2 + 1)} // Index 3 (Hero + 2 gallery items before this)
                                     >
-                                        <img src={project.gallery[2]} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" alt="Full Width UI" />
+                                        <img src={project.gallery[2]} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" alt="Full Width UI" loading="lazy" decoding="async" />
                                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                                             <Maximize2 className="text-white drop-shadow-md" size={32} />
                                         </div>

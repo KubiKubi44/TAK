@@ -2,11 +2,14 @@ import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 
 const GlobalBackground = ({ className }) => {
+    // Mobile Check - aggressive optimization
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
     // Particle System (Preserved from Hero3D)
+    // On mobile we bypass this entirely
     const particles = useMemo(() => {
-        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-        const count = isMobile ? 10 : 50; // Drastically reduce particles on mobile
-        return [...Array(count)].map((_, i) => ({
+        if (isMobile) return [];
+        return [...Array(50)].map((_, i) => ({
             id: i,
             x: Math.random() * 100 + '%',
             y: Math.random() * 100 + '%',
@@ -15,7 +18,17 @@ const GlobalBackground = ({ className }) => {
             duration: Math.random() * 3 + 2,
             delay: Math.random() * 2,
         }));
-    }, []);
+    }, [isMobile]);
+
+    if (isMobile) {
+        return (
+            <div className={`${className || 'fixed'} inset-0 z-0 bg-[#020205] pointer-events-none overflow-hidden`}>
+                {/* Static simplified background for mobile */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020205_90%)] z-10 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-full h-[30vh] bg-gradient-to-t from-neon-cyan/5 to-transparent opacity-30"></div>
+            </div>
+        );
+    }
 
     return (
         <div className={`${className || 'fixed'} inset-0 z-0 bg-[#020205] pointer-events-none overflow-hidden`}>
