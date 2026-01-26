@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
@@ -162,9 +162,12 @@ const PortfolioGrid = () => {
                 >
                     <AnimatePresence>
                         {filteredProjects.map((project, index) => (
-                            <div key={project.id} onClick={() => setSelectedProject(project)}>
-                                <ProjectCard project={project} index={index} />
-                            </div>
+                            <ProjectCard
+                                key={project.id}
+                                project={project}
+                                index={index}
+                                onClick={setSelectedProject}
+                            />
                         ))}
                     </AnimatePresence>
                 </motion.div>

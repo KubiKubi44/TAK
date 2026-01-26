@@ -49,7 +49,7 @@ const Hero3D = () => {
     return (
         <div
             ref={containerRef}
-            className="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden touch-pan-y"
+            className="relative min-h-[100dvh] w-full flex items-center justify-center touch-pan-y"
             style={{ perspective: "600px", perspectiveOrigin: "center center" }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
@@ -71,7 +71,7 @@ const Hero3D = () => {
                 <span className="relative z-0 text-transparent opacity-0 pointer-events-none block transform scale-x-115">{TEXT}</span>
 
                 {/* 3D LAYERS - Overlay exactly on top of the base text */}
-                <div className="absolute inset-0 flex items-center justify-center transform-style-3d">
+                <div className="absolute inset-0 flex items-center justify-center transform-style-3d pointer-events-none">
                     {[...Array(LAYERS)].map((_, i) => (
                         <span
                             key={i}

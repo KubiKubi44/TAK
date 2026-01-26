@@ -1,8 +1,8 @@
-import { useRef } from 'react';
+import { useRef, memo } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = memo(({ project, index, onClick }) => {
     const ref = useRef(null);
 
     // 3D Tilt Logic
@@ -41,6 +41,7 @@ const ProjectCard = ({ project, index }) => {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
+            onClick={() => onClick(project)}
             style={{
                 perspective: 1000,
                 transformStyle: "preserve-3d"
@@ -128,6 +129,8 @@ const ProjectCard = ({ project, index }) => {
             </motion.div>
         </motion.div>
     );
-};
+});
+
+ProjectCard.displayName = 'ProjectCard';
 
 export default ProjectCard;

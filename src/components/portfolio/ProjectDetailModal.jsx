@@ -46,7 +46,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9999] bg-bg-dark/95 backdrop-blur-xl overflow-hidden flex flex-col"
+            className="fixed inset-0 z-[9999] bg-bg-dark/95 backdrop-blur-md overflow-hidden flex flex-col"
         >
             {/* Progress Bar */}
             <motion.div style={{ scaleX }} className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow origin-left z-[10000]"></motion.div>

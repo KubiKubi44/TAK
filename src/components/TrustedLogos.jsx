@@ -125,12 +125,12 @@ const TrustedLogos = () => {
             {/* Atmospheric Fog */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-neon-cyan/5 blur-[150px] rounded-full pointer-events-none opacity-30"></div>
 
-            {/* 3D Field Container - MOVED TO ABSOLUTE FULL SIZE */}
+            {/* 3D Field Container - DESKTOP ONLY */}
             <div
                 ref={containerRef}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={() => { mouseX.set(0); mouseY.set(0); }}
-                className="absolute inset-0 w-full h-full perspective-1000 overflow-hidden z-10"
+                className="absolute inset-0 w-full h-full perspective-1000 overflow-hidden z-10 hidden md:block"
             >
                 <div
                     className="absolute inset-0 preserve-3d"
@@ -147,13 +147,42 @@ const TrustedLogos = () => {
                 </div>
             </div>
 
-            {/* Content Container - z-20 for layering above the distant logos/fog but maybe mixed with near ones */}
+            {/* Content Container */}
             <div className="relative z-20 w-full h-full container mx-auto px-6 flex flex-col justify-center pointer-events-none">
                 <div className="text-center">
                     <SectionTitle
                         title="Důvěřují nám"
                         align="center"
                     />
+
+                    {/* Mobile Infinite Marquee - INSERTED HERE */}
+                    <div className="relative z-10 md:hidden w-full overflow-hidden py-12 pointer-events-auto">
+                        <div className="flex w-full">
+                            <motion.div
+                                className="flex items-center gap-0 pr-0"
+                                animate={{ x: ["0%", "-50%"] }}
+                                transition={{
+                                    repeat: Infinity,
+                                    ease: "linear",
+                                    duration: 20,
+                                }}
+                            >
+                                {/* Render logos twice for seamless loop */}
+                                {[...partners.filter(p => !p.hiddenOnMobile), ...partners.filter(p => !p.hiddenOnMobile)].map((partner, i) => (
+                                    <div
+                                        key={i}
+                                        className="flex-shrink-0 transition-all duration-300 w-[140px] h-[80px] flex items-center justify-center mx-1"
+                                    >
+                                        <img
+                                            src={partner.src}
+                                            alt={partner.name}
+                                            className="max-w-[120px] max-h-[60px] w-auto h-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]"
+                                        />
+                                    </div>
+                                ))}
+                            </motion.div>
+                        </div>
+                    </div>
 
                     <div className="mt-12 pointer-events-auto">
                         <Link to="/portfolio" className="group relative inline-flex items-center gap-4 px-8 py-4 bg-black/40 backdrop-blur-md border border-neon-cyan/30 rounded-full text-neon-cyan font-mono font-bold uppercase tracking-widest hover:bg-neon-cyan/10 hover:border-neon-cyan hover:shadow-[0_0_20px_rgba(4,255,247,0.3)] transition-all duration-300">
@@ -167,7 +196,6 @@ const TrustedLogos = () => {
                 </div>
             </div>
 
-            {/* Vignette Overlay - Removed for seamless flow */}
         </Section>
     );
 };
