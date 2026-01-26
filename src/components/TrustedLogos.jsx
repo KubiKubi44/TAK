@@ -10,6 +10,7 @@ const asMinarLogo = "/logos/Logo design AS MINAR.webp";
 const bertickaLogo = "/logos/berticka.png";
 const partner3Logo = "/logos/partner3.png";
 const chalupaJazLogo = "/logos/chalupa-jaz.png";
+const stejskalStavLogo = "/logos/steskalstavlogo.webp";
 
 // Adjusted coordinates to avoid center title collision and utilize full 3D volume
 const partners = [
@@ -18,18 +19,21 @@ const partners = [
     { name: "S BERTIČKOU NA RYBY", src: bertickaLogo, color: "#FFF704", x: 25, y: -30, z: 60, scale: 1.3 },
     { name: "CHALUPA JAZ", src: chalupaJazLogo, color: "#FFF", x: -30, y: 20, z: 100, scale: 1.5 },
     { name: "HYDROIZOLACE MINAR", src: partner3Logo, color: "#E0E0E0", x: 30, y: 15, z: 50, scale: 1.2 },
+    { name: "STEJSKALSTAV", src: stejskalStavLogo, color: "#EAB308", x: 0, y: 35, z: 90, scale: 1.5 },
 
     // --- CLUSTER 2: MID FIELD (Balanced Context) ---
     { name: "AS MINAR", src: asMinarLogo, color: "#04FFF7", x: 40, y: -10, z: -20, scale: 1.1 },
     { name: "S BERTIČKOU NA RYBY", src: bertickaLogo, color: "#FFF704", x: -40, y: -5, z: 0, scale: 1.2 },
     { name: "CHALUPA JAZ", src: chalupaJazLogo, color: "#FFF", x: 15, y: 40, z: -40, scale: 1.0 },
     { name: "HYDROIZOLACE MINAR", src: partner3Logo, color: "#E0E0E0", x: -15, y: 35, z: -10, scale: 1.1 },
+    { name: "STEJSKALSTAV", src: stejskalStavLogo, color: "#EAB308", x: -25, y: -35, z: -30, scale: 1.1 },
 
     // --- CLUSTER 3: BACKGROUND DEPTH (Atmosphere) ---
     { name: "AS MINAR", src: asMinarLogo, color: "#04FFF7", x: -10, y: -45, z: -100, scale: 0.9 },
     { name: "S BERTIČKOU NA RYBY", src: bertickaLogo, color: "#FFF704", x: 10, y: -50, z: -120, scale: 0.9 },
     { name: "CHALUPA JAZ", src: chalupaJazLogo, color: "#FFF", x: 45, y: 45, z: -80, scale: 0.8 },
-    { name: "HYDROIZOLACE MINAR", src: partner3Logo, color: "#E0E0E0", x: -45, y: 10, z: -150, scale: 0.8 }
+    { name: "HYDROIZOLACE MINAR", src: partner3Logo, color: "#E0E0E0", x: -45, y: 10, z: -150, scale: 0.8 },
+    { name: "STEJSKALSTAV", src: stejskalStavLogo, color: "#EAB308", x: -35, y: -15, z: -90, scale: 0.9 }
 ];
 
 const FloatingLogo = ({ partner, mouseX, mouseY }) => {

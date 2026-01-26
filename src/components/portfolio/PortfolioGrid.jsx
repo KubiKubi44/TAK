@@ -77,6 +77,25 @@ const projects = [
             "/Jaz/screencapture-localhost-5174-rules-2026-01-20-14_08_08.webp"
         ],
         size: "large"
+    },
+    {
+        id: 5,
+        title: "StejskalStav",
+        category: "Weby",
+        image: "/Stejskalstav/screencapture-localhost-5173-2026-01-24-12_24_45.webp",
+        link: "https://stejskalstav.cz",
+        description: "Komplexní návrh a realizace moderní prezentační webové stránky pro stavební společnost s důrazem na důvěryhodnost a konverzi.",
+        tech: ["React", "Vite", "Tailwind CSS"],
+        role: "UI/UX Design, Frontend Development, Komponentová architektura",
+        goal: "Navrhnout a vyvinout moderní prezentační web s důrazem na důvěryhodnost, výkon a jasnou konverzní cestu. Design pracuje s tmavým industriálním vizuálem.",
+        solution: "Web obsahuje dynamickou úvodní sekci s 3D hero efektem, přehledné členění služeb a samostatnou sekce realizací. Technické řešení na React + Vite zajišťuje rychlost a snadnou údržbu.",
+        gallery: [
+            "/Stejskalstav/screencapture-localhost-5173-services-2026-01-26-13_36_34.webp",
+            "/Stejskalstav/screencapture-localhost-5173-realizations-2026-01-26-13_39_09.webp",
+            "/Stejskalstav/screencapture-localhost-5173-about-2026-01-26-13_36_57.webp",
+            "/Stejskalstav/screencapture-localhost-5173-contact-2026-01-26-13_37_04.webp"
+        ],
+        size: "large"
     }
 ];
 
