@@ -57,10 +57,10 @@ const ProjectCard = memo(({ project, index, onClick }) => {
                     rotateY,
                     transformStyle: "preserve-3d"
                 }}
-                className="relative w-full h-full bg-black/40 backdrop-blur-md border border-white/5 overflow-hidden rounded-sm transition-colors duration-500 group-hover:border-transparent"
+                className="relative w-full h-full bg-black/40 md:backdrop-blur-md border border-white/5 overflow-hidden rounded-sm transition-colors duration-500 group-hover:border-transparent"
             >
-                {/* Neon Glow Border (Animated) */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-sm z-0">
+                {/* Neon Glow Border (Animated) - Desktop Only for performance */}
+                <div className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-sm z-0">
                     <div className="absolute inset-[-2px] bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow blur-sm animate-rgb-flow"></div>
                     <div className="absolute inset-[1px] bg-black rounded-sm"></div>
                 </div>
@@ -74,14 +74,15 @@ const ProjectCard = memo(({ project, index, onClick }) => {
                             src={project.image}
                             alt={project.title}
                             className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                            loading="lazy"
                         />
 
                         {/* Overlay Gradient */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
 
-                        {/* Holographic Overlay Effect */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mix-blend-overlay bg-[url('/noise.png')]"></div>
-                        <div className="absolute inset-0 bg-gradient-to-br from-neon-cyan/20 to-neon-magenta/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-screen"></div>
+                        {/* Holographic Overlay Effect - Desktop Only */}
+                        <div className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mix-blend-overlay bg-[url('/noise.png')]"></div>
+                        <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-neon-cyan/20 to-neon-magenta/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-screen"></div>
 
                         {/* Top Right Arrow */}
                         <div className="absolute top-6 right-6 z-20 overflow-hidden">
