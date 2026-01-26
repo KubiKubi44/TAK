@@ -16,6 +16,9 @@ const ProjectCard = memo(({ project, index, onClick }) => {
     const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
 
     const handleMouseMove = (e) => {
+        // Disable 3D effect interactions on mobile/touch to prevent event flooding and lag
+        if (window.matchMedia("(hover: none)").matches) return;
+
         const rect = ref.current.getBoundingClientRect();
         const width = rect.width;
         const height = rect.height;
@@ -124,9 +127,15 @@ const ProjectCard = memo(({ project, index, onClick }) => {
                                 {project.description}
                             </p>
 
-                            {/* Mobile Detail Button - Always visible on mobile, hidden on desktop until hover ?? Actually user wants explicit button */}
+                            {/* Mobile Detail Button - Always visible on mobile */}
                             <div className="md:hidden mt-2">
-                                <button className="px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/50 rounded-full text-neon-cyan text-xs font-bold uppercase tracking-widest backdrop-blur-md">
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        onClick(project);
+                                    }}
+                                    className="px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/50 rounded-full text-neon-cyan text-xs font-bold uppercase tracking-widest backdrop-blur-md active:bg-neon-cyan active:text-black transition-colors"
+                                >
                                     Zobrazit detail
                                 </button>
                             </div>
