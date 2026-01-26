@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
@@ -49,6 +49,10 @@ const FloatingLogo = ({ partner, mouseX, mouseY }) => {
     // Increased opacity overall for visibility
     const opacityAmount = partner.z < 0 ? 0.7 + (1 - Math.abs(partner.z) / 300) * 0.3 : 1;
 
+    // Memoize random values to keep them pure during render
+    const randomDelay = useMemo(() => Math.random() * 0.5, []);
+    const randomDuration = useMemo(() => 3 + Math.random() * 2, []);
+
     return (
         <motion.div
             style={{
@@ -64,13 +68,13 @@ const FloatingLogo = ({ partner, mouseX, mouseY }) => {
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: opacityAmount, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: Math.random() * 0.5 }}
+            transition={{ duration: 1, delay: randomDelay }}
             className="flex flex-col items-center gap-3 transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer"
         >
             {/* Float Animation - Increased Amplitude */}
             <motion.div
                 animate={{ y: [-20, 20, -20] }}
-                transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: randomDuration, repeat: Infinity, ease: "easeInOut" }}
                 className="relative"
             >
                 {/* Removed Box/Background */}
@@ -79,7 +83,7 @@ const FloatingLogo = ({ partner, mouseX, mouseY }) => {
                         src={partner.src}
                         alt={partner.name}
                         // Removed grayscale, added gentle drop shadow for pop
-                        className="w-32 h-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300"
+                        className="w-24 md:w-32 h-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-300"
                     />
                 </div>
             </motion.div>
@@ -114,7 +118,7 @@ const TrustedLogos = () => {
     return (
         <Section
             id="trusted-partners"
-            className="relative overflow-hidden h-[800px] flex items-center justify-center p-0"
+            className="relative overflow-hidden h-[500px] md:h-[800px] flex items-center justify-center p-0"
         >
             {/* Deep Space Background - Removed for seamless flow */}
 
