@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
 import ProjectDetailModal from './ProjectDetailModal';
+import PortfolioMobile from './PortfolioMobile'; // Imported
 
 // Dummy Data (replace with real data later)
 const projects = [
@@ -106,6 +107,16 @@ const PortfolioGrid = () => {
     const [selectedProject, setSelectedProject] = useState(null);
     const location = useLocation();
 
+    // Mobile Detection
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     useEffect(() => {
         const params = new URLSearchParams(location.search);
         const projectId = params.get('project');
@@ -155,19 +166,26 @@ const PortfolioGrid = () => {
                     ))}
                 </div>
 
-                {/* Grid */}
-                <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {filteredProjects.map((project, index) => (
-                        <ProjectCard
-                            key={project.id}
-                            project={project}
-                            index={index}
-                            onClick={setSelectedProject}
-                        />
-                    ))}
-                </motion.div>
+                {/* CONDITIONAL RENDERING: Mobile List vs Desktop Grid */}
+                {isMobile ? (
+                    <PortfolioMobile
+                        projects={filteredProjects}
+                        onSelect={setSelectedProject}
+                    />
+                ) : (
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    >
+                        {filteredProjects.map((project, index) => (
+                            <ProjectCard
+                                key={project.id}
+                                project={project}
+                                index={index}
+                                onClick={setSelectedProject}
+                            />
+                        ))}
+                    </motion.div>
+                )}
 
                 {/* Detail Modal */}
                 <AnimatePresence>
