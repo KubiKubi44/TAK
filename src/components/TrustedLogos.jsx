@@ -22,18 +22,18 @@ const partners = [
     { name: "STEJSKALSTAV", src: stejskalStavLogo, color: "#EAB308", x: 0, y: 35, z: 90, scale: 1.5 },
 
     // --- CLUSTER 2: MID FIELD (Balanced Context) ---
-    { name: "AS MINAR", src: asMinarLogo, color: "#04FFF7", x: 40, y: -10, z: -20, scale: 1.1 },
-    { name: "S BERTIČKOU NA RYBY", src: bertickaLogo, color: "#FFF704", x: -40, y: -5, z: 0, scale: 1.2 },
-    { name: "CHALUPA JAZ", src: chalupaJazLogo, color: "#FFF", x: 15, y: 40, z: -40, scale: 1.0 },
-    { name: "HYDROIZOLACE MINAR", src: partner3Logo, color: "#E0E0E0", x: -15, y: 35, z: -10, scale: 1.1 },
-    { name: "STEJSKALSTAV", src: stejskalStavLogo, color: "#EAB308", x: -25, y: -35, z: -30, scale: 1.1 },
+    { name: "AS MINAR", src: asMinarLogo, color: "#04FFF7", x: 40, y: -10, z: -20, scale: 1.1, hiddenOnMobile: true },
+    { name: "S BERTIČKOU NA RYBY", src: bertickaLogo, color: "#FFF704", x: -40, y: -5, z: 0, scale: 1.2, hiddenOnMobile: true },
+    { name: "CHALUPA JAZ", src: chalupaJazLogo, color: "#FFF", x: 15, y: 40, z: -40, scale: 1.0, hiddenOnMobile: true },
+    { name: "HYDROIZOLACE MINAR", src: partner3Logo, color: "#E0E0E0", x: -15, y: 35, z: -10, scale: 1.1, hiddenOnMobile: true },
+    { name: "STEJSKALSTAV", src: stejskalStavLogo, color: "#EAB308", x: -25, y: -35, z: -30, scale: 1.1, hiddenOnMobile: true },
 
     // --- CLUSTER 3: BACKGROUND DEPTH (Atmosphere) ---
-    { name: "AS MINAR", src: asMinarLogo, color: "#04FFF7", x: -10, y: -45, z: -100, scale: 0.9 },
-    { name: "S BERTIČKOU NA RYBY", src: bertickaLogo, color: "#FFF704", x: 10, y: -50, z: -120, scale: 0.9 },
-    { name: "CHALUPA JAZ", src: chalupaJazLogo, color: "#FFF", x: 45, y: 45, z: -80, scale: 0.8 },
-    { name: "HYDROIZOLACE MINAR", src: partner3Logo, color: "#E0E0E0", x: -45, y: 10, z: -150, scale: 0.8 },
-    { name: "STEJSKALSTAV", src: stejskalStavLogo, color: "#EAB308", x: -35, y: -15, z: -90, scale: 0.9 }
+    { name: "AS MINAR", src: asMinarLogo, color: "#04FFF7", x: -10, y: -45, z: -100, scale: 0.9, hiddenOnMobile: true },
+    { name: "S BERTIČKOU NA RYBY", src: bertickaLogo, color: "#FFF704", x: 10, y: -50, z: -120, scale: 0.9, hiddenOnMobile: true },
+    { name: "CHALUPA JAZ", src: chalupaJazLogo, color: "#FFF", x: 45, y: 45, z: -80, scale: 0.8, hiddenOnMobile: true },
+    { name: "HYDROIZOLACE MINAR", src: partner3Logo, color: "#E0E0E0", x: -45, y: 10, z: -150, scale: 0.8, hiddenOnMobile: true },
+    { name: "STEJSKALSTAV", src: stejskalStavLogo, color: "#EAB308", x: -35, y: -15, z: -90, scale: 0.9, hiddenOnMobile: true }
 ];
 
 const FloatingLogo = ({ partner, mouseX, mouseY }) => {
@@ -69,7 +69,7 @@ const FloatingLogo = ({ partner, mouseX, mouseY }) => {
             whileInView={{ opacity: opacityAmount, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: randomDelay }}
-            className="flex flex-col items-center gap-3 transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer"
+            className={`flex-col items-center gap-3 transform -translate-x-1/2 -translate-y-1/2 group cursor-pointer ${partner.hiddenOnMobile ? 'hidden md:flex' : 'flex'}`}
         >
             {/* Float Animation - Increased Amplitude */}
             <motion.div
