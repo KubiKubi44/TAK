@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+    /* Colors - automatically creates text-neon-cyan, bg-neon-magenta, etc. */
+    --color-neon-cyan: #04FFF7;
+    --color-neon-magenta: #F704FF;
+    --color-neon-yellow: #FFF704;
+    --color-bg-dark: #050510;
+    --color-bg-dark-90: rgba(5, 5, 16, 0.9);
+
+    /* Fonts - Prioritizing Outfit for the 'wider' look */
+    --font-sans: 'Outfit', 'Inter', 'Roboto', ui-sans-serif, system-ui;
+
+    /* Animations */
+    --animate-rgb-flow: rgb-flow 5s linear infinite;
+
+    @keyframes rgb-flow {
+
+        0%,
+        100% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+    }
+}
+
+/* Custom Utilities */
+@utility animate-rgb-flow {
+    background-size: 200% 200%;
+}
+
+/* Base Styles */
+@layer base {
+    body {
+        background-color: var(--color-bg-dark);
+        color: white;
+        font-family: var(--font-sans);
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* Force hide cursor primarily on desktop, letting CustomCursor take over */
+    @media (min-width: 768px) {
+
+        *,
+        *::before,
+        *::after {
+            cursor: none !important;
+        }
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neon-cyan);
+}
