@@ -50,10 +50,10 @@ const CustomCursor = () => {
     }
 
     return (
-        <div className="pointer-events-none fixed inset-0 z-[99999] overflow-hidden hidden md:block">
+        <div className="pointer-events-none fixed inset-0 z-[2147483647] overflow-hidden hidden md:block">
 
             <motion.div
-                className="absolute top-0 left-0 flex items-center justify-center rounded-full mix-blend-difference bg-white"
+                className="absolute top-0 left-0 flex items-center justify-center rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]"
                 style={{
                     x: cursorX,
                     y: cursorY,

@@ -3,15 +3,19 @@ import { motion } from 'framer-motion';
 
 const GlobalBackground = ({ className }) => {
     // Particle System (Preserved from Hero3D)
-    const particles = useMemo(() => [...Array(50)].map((_, i) => ({
-        id: i,
-        x: Math.random() * 100 + '%',
-        y: Math.random() * 100 + '%',
-        scale: Math.random() * 0.5 + 0.5,
-        opacity: Math.random() * 0.3 + 0.1,
-        duration: Math.random() * 3 + 2,
-        delay: Math.random() * 2,
-    })), []);
+    const particles = useMemo(() => {
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+        const count = isMobile ? 10 : 50; // Drastically reduce particles on mobile
+        return [...Array(count)].map((_, i) => ({
+            id: i,
+            x: Math.random() * 100 + '%',
+            y: Math.random() * 100 + '%',
+            scale: Math.random() * 0.5 + 0.5,
+            opacity: Math.random() * 0.3 + 0.1,
+            duration: Math.random() * 3 + 2,
+            delay: Math.random() * 2,
+        }));
+    }, []);
 
     return (
         <div className={`${className || 'fixed'} inset-0 z-0 bg-[#020205] pointer-events-none overflow-hidden`}>

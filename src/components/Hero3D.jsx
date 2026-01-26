@@ -73,46 +73,61 @@ const Hero3D = () => {
                 <span className="relative z-0 text-transparent opacity-0 pointer-events-none block transform scale-x-115">{TEXT}</span>
 
                 {/* 3D LAYERS - Overlay exactly on top of the base text */}
+                {/* 3D LAYERS - Overlay exactly on top of the base text */}
                 <div className="absolute inset-0 flex items-center justify-center transform-style-3d pointer-events-none">
-                    {[...Array(LAYERS)].map((_, i) => (
+                    {isMobile ? (
+                        // MOBILE: Single static layer, no 3D stack
                         <span
-                            key={i}
-                            className="absolute inset-0 flex items-center justify-center w-full h-full text-center"
+                            className="absolute inset-0 flex items-center justify-center w-full h-full text-center text-transparent bg-clip-text animate-rgb-flow drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
                             style={{
-                                transform: `translateZ(-${i * DEPTH_STEP}px) scaleX(1.15)`, // Added scaleX for width
+                                backgroundImage: `
+                                    linear-gradient(to bottom, transparent 2px, rgba(0,0,0,0.5) 2px, rgba(0,0,0,0.5) 4px, transparent 4px),
+                                    linear-gradient(to right, #04FFF7, #F704FF, #FFF704)
+                                `,
+                                backgroundSize: '100% 4px, 200% 200%'
                             }}
                         >
-                            {i === 0 ? (
-                                // --- LAYER 0: The Front Face ---
-                                <span
-                                    className="text-transparent bg-clip-text animate-rgb-flow drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
-                                    style={{
-                                        backgroundImage: `
-                                            linear-gradient(to bottom, transparent 2px, rgba(0,0,0,0.5) 2px, rgba(0,0,0,0.5) 4px, transparent 4px),
-                                            linear-gradient(to right, #04FFF7, #F704FF, #FFF704)
-                                        `,
-                                        backgroundSize: '100% 4px, 200% 200%'
-                                    }}
-                                >
-                                    {TEXT}
-                                </span>
-                            ) : (
-                                // --- BODY LAYERS ---
-                                <span
-                                    className="text-black"
-                                    style={{
-                                        // Solid block style - Deep cyan/black mix to look solid and glowing
-                                        color: '#032022',
-                                        WebkitTextStroke: '1px rgba(4, 255, 247, 0.4)', // Clearer definition
-                                        paintOrder: 'stroke fill', // CRITICAL: Prevents stroke from eating the letter shape
-                                        textShadow: '0 0 2px rgba(4, 255, 247, 0.3)' // Glow to fill gaps
-                                    }}
-                                >
-                                    {TEXT}
-                                </span>
-                            )}
+                            {TEXT}
                         </span>
-                    ))}
+                    ) : (
+                        // DESKTOP: Full 3D Stack
+                        [...Array(LAYERS)].map((_, i) => (
+                            <span
+                                key={i}
+                                className="absolute inset-0 flex items-center justify-center w-full h-full text-center"
+                                style={{
+                                    transform: `translateZ(-${i * DEPTH_STEP}px) scaleX(1.15)`,
+                                }}
+                            >
+                                {i === 0 ? (
+                                    <span
+                                        className="text-transparent bg-clip-text animate-rgb-flow drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+                                        style={{
+                                            backgroundImage: `
+                                                linear-gradient(to bottom, transparent 2px, rgba(0,0,0,0.5) 2px, rgba(0,0,0,0.5) 4px, transparent 4px),
+                                                linear-gradient(to right, #04FFF7, #F704FF, #FFF704)
+                                            `,
+                                            backgroundSize: '100% 4px, 200% 200%'
+                                        }}
+                                    >
+                                        {TEXT}
+                                    </span>
+                                ) : (
+                                    <span
+                                        className="text-black"
+                                        style={{
+                                            color: '#032022',
+                                            WebkitTextStroke: '1px rgba(4, 255, 247, 0.4)',
+                                            paintOrder: 'stroke fill',
+                                            textShadow: '0 0 2px rgba(4, 255, 247, 0.3)'
+                                        }}
+                                    >
+                                        {TEXT}
+                                    </span>
+                                )}
+                            </span>
+                        ))
+                    )}
                 </div>
 
             </motion.div >
