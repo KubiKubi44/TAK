@@ -49,7 +49,7 @@ const ProjectCard = memo(({ project, index, onClick }) => {
                 perspective: 1000,
                 transformStyle: "preserve-3d"
             }}
-            className={`relative group cursor-pointer h-full`}
+            className={`relative group cursor-pointer h-full content-visibility-auto`}
         >
             <motion.div
                 style={{
@@ -75,6 +75,7 @@ const ProjectCard = memo(({ project, index, onClick }) => {
                             alt={project.title}
                             className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                             loading="lazy"
+                            decoding="async"
                         />
 
                         {/* Overlay Gradient */}

@@ -32,6 +32,11 @@
     background-size: 200% 200%;
 }
 
+@utility content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 400px; /* Estimate height to prevent scroll jank */
+}
+
 /* Base Styles */
 @layer base {
     body {
