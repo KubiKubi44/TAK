@@ -12,7 +12,10 @@ const ProjectDetailModal = ({ project, onClose }) => {
     // Mobile Check
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
-        setIsMobile(typeof window !== 'undefined' && window.innerWidth < 768);
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
     // Scroll handling for internal modal content
@@ -29,7 +32,11 @@ const ProjectDetailModal = ({ project, onClose }) => {
     }, []);
 
     // Construct all images array (Hero + Gallery)
-    const allImages = project ? [project.image, ...(project.gallery || [])] : [];
+    const allImages = project
+        ? (isMobile
+            ? [(project.imageMobile || project.image)]
+            : [project.image, ...(project.gallery || [])])
+        : [];
 
     // Lightbox Navigation Handlers
     const handleNext = useCallback((e) => {
@@ -84,7 +91,11 @@ const ProjectDetailModal = ({ project, onClose }) => {
             >
                 {/* SECTION 1: HERO OVERVIEW */}
                 <div className="relative h-[60vh] md:h-[70vh] w-full group cursor-zoom-in" onClick={() => setLightboxIndex(0)}>
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover object-top" />
+                    <img
+                        src={isMobile && project.imageMobile ? project.imageMobile : project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover object-top"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/50 to-transparent"></div>
 
                     {/* Hover Zoom Hint */}
