@@ -1,9 +1,11 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, useScroll, useMotionTemplate } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Hero3D = () => {
     const containerRef = useRef(null);
+    const { t } = useTranslation();
 
     // Scroll Animation - "Fly Away"
     const { scrollY } = useScroll();
@@ -127,7 +129,7 @@ const Hero3D = () => {
                 <div className="inline-flex items-center gap-4 px-6 py-2 rounded-full border border-neon-cyan/30 bg-black/40 backdrop-blur-md shadow-[0_0_15px_rgba(4,255,247,0.1)]">
                     <span className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse shadow-[0_0_10px_#04FFF7]"></span>
                     <span className="text-sm font-mono font-bold tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow">
-                        Systém Online
+                        {t('hero.systemOnline')}
                     </span>
                 </div>
             </motion.div >

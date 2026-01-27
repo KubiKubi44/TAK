@@ -1,25 +1,28 @@
 import { useRef } from "react";
 import { motion, useMotionTemplate, useMotionValue, useSpring } from "framer-motion";
 import { Zap, Shield, Cpu } from "lucide-react";
+import { useTranslation } from 'react-i18next';
 
 const FeaturesGrid = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:px-0 relative z-20 py-20 container mx-auto">
             <TiltCard
-                title="Blitz Speed"
-                subtitle="Optimized for maximum performance with 99+ Lighthouse scores."
+                title={t('featuresGrid.cards.blitzSpeed.title')}
+                subtitle={t('featuresGrid.cards.blitzSpeed.subtitle')}
                 icon={<Zap size={40} className="text-neon-yellow" />}
                 color="rgba(255, 247, 4, 0.3)"
             />
             <TiltCard
-                title="Ironclad Security"
-                subtitle="Enterprise-grade protection integrated into every layer of code."
+                title={t('featuresGrid.cards.ironcladSecurity.title')}
+                subtitle={t('featuresGrid.cards.ironcladSecurity.subtitle')}
                 icon={<Shield size={40} className="text-neon-cyan" />}
                 color="rgba(4, 255, 247, 0.3)"
             />
             <TiltCard
-                title="Modern Tech"
-                subtitle="Built with the latest frameworks: React, Tailwind, and Vite."
+                title={t('featuresGrid.cards.modernTech.title')}
+                subtitle={t('featuresGrid.cards.modernTech.subtitle')}
                 icon={<Cpu size={40} className="text-neon-magenta" />}
                 color="rgba(247, 4, 255, 0.3)"
             />

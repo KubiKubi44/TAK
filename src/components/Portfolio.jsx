@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
 import Section from './Section';
 import SectionTitle from './SectionTitle';
+import { useTranslation } from 'react-i18next';
 
 const projects = [
     {
@@ -35,12 +36,14 @@ const projects = [
 ];
 
 const Portfolio = () => {
+    const { t } = useTranslation();
+
     return (
         <Section id="portfolio" className="bg-bg-dark">
             <div className="container mx-auto px-6">
                 <SectionTitle
-                    title="Selected Work"
-                    subtitle="Our Portfolio"
+                    title={t('portfolio.title')}
+                    subtitle={t('portfolio.subtitle')}
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -82,7 +85,7 @@ const Portfolio = () => {
 
                 <div className="mt-12 text-center">
                     <a href="#" className="inline-flex items-center gap-2 text-white border-b border-neon-cyan pb-1 hover:text-neon-cyan transition-colors">
-                        View All Projects <ExternalLink size={16} />
+                        {t('portfolio.viewAll')} <ExternalLink size={16} />
                     </a>
                 </div>
             </div>

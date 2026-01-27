@@ -1,0 +1,275 @@
+{
+    "navbar": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "portfolio": "Portfolio",
+        "contact": "Contact",
+        "menu": "Menu",
+        "startProject": "Start Project",
+        "latestProject": "LATEST PROJECT",
+        "socials": "SOCIALS",
+        "instagram": "INSTAGRAM",
+        "tiktok": "TIKTOK",
+        "linkedin": "LINKEDIN",
+        "email": "CONTACT"
+    },
+    "footer": {
+        "quickLinks": "Quick Links",
+        "externalChannels": "External Channels",
+        "rights": "All rights reserved"
+    },
+    "hero": {
+        "systemOnline": "System Online"
+    },
+    "about": {
+        "title": "About Us",
+        "subtitle": "Who We Are",
+        "description1": "We are a digital studio focused on designing and developing modern web applications with a clear goal – to help brands grow and deliver real results.",
+        "description2": "We create products that not only look good but primarily fulfill their business purpose.",
+        "description3": "We believe that a quality website is not just about design, but primarily about functionality, speed, and a great user experience. We specialize in complete execution from initial design to technical implementation and long-term sustainability.",
+        "description4": "We treat every project individually. Whether it's a corporate presentation or an interactive application, we work with proven procedures that ensure speed, security, and seamless operation on all devices.",
+        "cleanCode": "Clean Code",
+        "scalability": "Scalability",
+        "speed": "Speed",
+        "security": "Security",
+        "whatWeOffer": "What We Offer",
+        "whyUs": "Why Us",
+        "services": {
+            "ux": "UX & Structure Design",
+            "ui": "Modern UI Design",
+            "webDev": "Web App Development",
+            "responsive": "Responsive Design",
+            "seo": "SEO & Performance",
+            "api": "API Integration",
+            "support": "Long-term Support"
+        },
+        "benefits": {
+            "individual": "Individual Approach",
+            "transparent": "Transparent Process",
+            "quality": "Focus on Quality",
+            "tech": "Modern Technology",
+            "scalable": "Scalable Solutions"
+        }
+    },
+    "services": {
+        "title": "Services",
+        "subtitle": "Accelerated Capabilities",
+        "moreInfo": "More Info",
+        "initializeProtocol": "Initialize Protocol",
+        "cards": {
+            "webDev": {
+                "title": "Web Development",
+                "desc": "Pixel-perfect websites for scale.",
+                "extDesc": "We build digital fortresses. Our web development stack leverages the latest React, Next.js, and WebGL technologies to deliver experiences that are not just seen, but felt. From SEO-optimized landing pages to complex PWA ecosystems, we ensure millisecond load times and 100% Lighthouse scores.",
+                "features": [
+                    "React / Next.js",
+                    "WebGL & 3D Interactivity",
+                    "Headless CMS Integration",
+                    "Global CDN Deployment"
+                ]
+            },
+            "webApps": {
+                "title": "Web Applications",
+                "desc": "Complex SaaS platforms powered by modern infrastructure.",
+                "extDesc": "Scalability is not an afterthought; it is the foundation. We design robust SaaS platforms capable of handling millions of concurrent users. Our microservices architecture ensures zero-downtime deployments and infinite horizontal scaling.",
+                "features": [
+                    "Microservices Architecture",
+                    "Real-time Socket.io",
+                    "AWS / Azure Cloud Native",
+                    "Enterprise Security"
+                ]
+            },
+            "uiUx": {
+                "title": "UI/UX Design",
+                "desc": "Where psychology meets futuristic aesthetics.",
+                "extDesc": "Design is breathing life into code. Our process begins with deep user empathy and ends with pixel-perfect interfaces that guide users effortlessly. We simulate user flows, A/B test interactions, and create motion languages that delight.",
+                "features": [
+                    "Figma Prototyping",
+                    "Motion Design System",
+                    "User Journey Mapping",
+                    "Accessibility (WCAG 2.1)"
+                ]
+            },
+            "itArch": {
+                "title": "IT Architecture",
+                "desc": "Robust backend systems handling millions of requests.",
+                "extDesc": "The invisible backbone of your business. We design database schemas and API layers that are resilient, secure, and fast. Whether SQL or NoSQL, GraphQL or REST, we choose the right tool for the mission.",
+                "features": [
+                    "Database Optimization",
+                    "API Gateway Design",
+                    "Serverless Functions",
+                    "Automated CI/CD Pipelines"
+                ]
+            },
+            "productDesign": {
+                "title": "Product Design",
+                "desc": "From MVP to enterprise solutions, leading the entire lifecycle.",
+                "extDesc": "We turn napkin sketches into market leaders. Our product design methodology involves rapid iteration, user validation, and data-driven decision making. We help you find product-market fit faster.",
+                "features": [
+                    "MVP Strategy",
+                    "Market Analysis",
+                    "Iterative Design Sprints",
+                    "Growth Hacking"
+                ]
+            },
+            "optimization": {
+                "title": "Optimization",
+                "desc": "Refactoring legacy systems for speed and security.",
+                "extDesc": "Speed is a feature. We audit existing codebases to identify bottlenecks, security vulnerabilities, and technical debt. We then surgically refactor or rewrite critical components to restore peak performance.",
+                "features": [
+                    "Legacy Code Refactoring",
+                    "Security Audits",
+                    "Performance Tuning",
+                    "Bundle Size Reduction"
+                ]
+            }
+        }
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "Start Your Project",
+        "ctaTitle": "Let's create something",
+        "ctaTitleHighlight": "exceptional",
+        "ctaDesc": "Whether you have a groundbreaking idea or need to modernize existing infrastructure, we are here for you. Get in touch and let's discuss your vision.",
+        "writeUs": "Write to us",
+        "callUs": "Call us",
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "subject": "Subject",
+            "message": "Message",
+            "subjects": {
+                "general": "General Inquiry",
+                "project": "Start Project",
+                "career": "Career"
+            },
+            "placeholders": {
+                "name": "John Doe",
+                "email": "john@example.com",
+                "message": "Tell us about your project..."
+            },
+            "submit": "SEND MESSAGE"
+        }
+    },
+    "homeAbout": {
+        "weAre": "We are",
+        "description1": "We are a collective of digital architects and creative engineers. We don't just build websites; we construct immersive digital realities that elevate brands above the ordinary noise.",
+        "description2": "We specialize in high-performance web applications, 3D interactive experiences, and futuristic branding. Our mission is to combine art and engineering into a unique, powerful expression of your identity.",
+        "moreAbout": "More about us",
+        "cards": {
+            "engineering": {
+                "title": "Engineering",
+                "desc": "Next-gen tech stacks for speed and scale."
+            },
+            "global": {
+                "title": "Global Reach",
+                "desc": "Digital solutions that connect with audiences worldwide."
+            },
+            "cleanCode": {
+                "title": "Clean Code",
+                "desc": "Maintainable, scalable, and built to last."
+            }
+        }
+    },
+    "portfolio": {
+        "title": "Selected Work",
+        "subtitle": "Our Portfolio",
+        "viewAll": "View All Projects",
+        "footerTagline": "Every project is an opportunity to create something exceptional.",
+        "viewDetail": "View Detail",
+        "visitWeb": "Visit Website",
+        "projectSummary": "Project Summary",
+        "role": "Role",
+        "goal": "Goal",
+        "solution": "Solution",
+        "startProject": "Start Project",
+        "endOfStream": "End of Stream",
+        "hero": {
+            "badge": "Verified Projects",
+            "titlePrefix": "Selected",
+            "titleHighlight": "Work",
+            "description": "A collection of digital experiences designed for speed, aesthetics, and maximum impact."
+        },
+        "projects": {
+            "minar": {
+                "description": "Complete design and implementation of a responsive corporate website for a company specializing in building waterproofing and sales of specialized materials.",
+                "role": "Structure & UX Design, UI Design, Implementation, Responsiveness Testing",
+                "goal": "The goal was to create a modern, clear, and credible brand presentation that facilitates user orientation, clearly communicates services and products, and supports generating new inquiries.",
+                "solution": "The website emphasizes a clear information structure, intuitive navigation, and a consistent visual style. The solution includes a product catalog, equipment rental section, clear team presentation, and an optimized contact page with map integration. The interface is fully responsive and optimized for various devices with a focus on load speed and content readability."
+            },
+            "berticka": {
+                "description": "Comprehensive design and implementation of a modern digital platform connecting the fishing community with charitable aid.",
+                "role": "UX Strategy, UI Design, Frontend Implementation",
+                "goal": "To create an attractive, credible, and easy-to-use website that motivates visitors to participate in competitions, facilitates team registration, and transparently communicates the purpose of the initiative. Strong visual identity supports emotions connected with being in nature.",
+                "solution": "The platform is designed with a focus on performance, responsiveness, and scalability. A key element is the online registration process, which simplifies administration. The solution includes an overview of upcoming events and a partners section."
+            },
+            "asminar": {
+                "description": "Comprehensive design and implementation of a modern web presentation for AS Minar – an application center specializing in professional waterproofing and insulation systems.",
+                "role": "UX Structure Design, UI Design, Frontend Implementation, Responsive Tuning",
+                "goal": "The project aim was to create a representative digital identity that strengthens brand credibility, clearly communicates the scope of services, and effectively supports the inquiry process. The website had to look professional while serving as a practical business tool.",
+                "solution": "The website is built on clear information architecture and a distinct visual style. The key role is played by the services page with structured segments and the portfolio section for building trust. The contact page is optimized to minimize barriers with map integration and clear CTAs."
+            },
+            "jaz": {
+                "description": "Design and implementation of a modern web presentation for recreational accommodation Chalupa JAZ in Bedřichov, Jizera Mountains.",
+                "role": "UX Design, UI Design, Frontend Implementation, Animation",
+                "goal": "To create an attractive and trustworthy digital presentation that provides visitors with key information in a clear form and supports booking decisions. Emphasis on strong visuals and emotions.",
+                "solution": "The website combines interior and location photography with clearly structured content. The interface uses card layouts, subtle animations, and transparent pricing communication. Responsive design ensures comfortable viewing on all devices."
+            },
+            "stejskal": {
+                "description": "Comprehensive design and implementation of a modern presentation website for a construction company with an emphasis on credibility and conversion.",
+                "role": "UI/UX Design, Frontend Development, Component Architecture",
+                "goal": "To design and develop a modern presentation website focusing on credibility, performance, and a clear conversion path. The design uses a dark industrial visual.",
+                "solution": "The website features a dynamic intro section with a 3D hero effect, clear service segmentation, and a separate realizations section. The technical solution on React + Vite ensures speed and easy maintenance."
+            }
+        }
+    },
+    "trustedLogos": {
+        "title": "Trusted By",
+        "viewWork": "View Our Work"
+    },
+    "featuresGrid": {
+        "title": "Technology",
+        "subtitle": "Our Stack",
+        "cards": {
+            "blitzSpeed": {
+                "title": "Blitz Speed",
+                "subtitle": "Optimized for maximum performance with 99+ Lighthouse scores."
+            },
+            "ironcladSecurity": {
+                "title": "Ironclad Security",
+                "subtitle": "Enterprise-grade protection integrated into every layer of code."
+            },
+            "modernTech": {
+                "title": "Modern Tech",
+                "subtitle": "Built with the latest frameworks: React, Tailwind, and Vite."
+            }
+        }
+    },
+    "process": {
+        "title": "Process",
+        "subtitle": "Systematic Execution",
+        "steps": {
+            "analysis": {
+                "title": "Analysis & Strategy",
+                "description": "Mapping the digital terrain. We analyze your goals, audience, and competition to define a precise trajectory for success."
+            },
+            "uiux": {
+                "title": "UI/UX Engineering",
+                "description": "Architecting the experience. Wireframes turn into high-fidelity interfaces designed for maximum engagement and conversion."
+            },
+            "development": {
+                "title": "Agile Development",
+                "description": "Writing the logic. Using modern frameworks and scalable architecture, we build robust systems in fast, iterative sprints."
+            },
+            "testing": {
+                "title": "Rigorous Testing",
+                "description": "Bulletproof code. Automated and manual testing ensures performance, security, and stability across all devices."
+            },
+            "launch": {
+                "title": "Launch & Evolution",
+                "description": "Powering up. Deployment is just the beginning; we provide ongoing support to let your product evolve."
+            }
+        }
+    }
+}

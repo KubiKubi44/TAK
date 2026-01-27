@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, Instagram, Linkedin } from 'lucide-react';
+import { Menu, X, ArrowRight, Instagram, Linkedin, Mail } from 'lucide-react';
 import { NavLink, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
 
   // Custom TikTok Icon
   const TikTokIcon = ({ size = 20, className = "" }) => (
@@ -25,12 +28,12 @@ const Navbar = () => {
   );
 
   const navLinks = [
-    { name: 'Domů', href: '/' },
-    { name: 'O nás', href: '/o-nas' },
-    { name: 'Služby', href: '/sluzby' },
-    { name: 'Portfolio', href: '/portfolio' },
+    { name: t('navbar.home'), href: '/' },
+    { name: t('navbar.about'), href: '/o-nas' },
+    { name: t('navbar.services'), href: '/sluzby' },
+    { name: t('navbar.portfolio'), href: '/portfolio' },
     // { name: 'Proces', href: '/proces' },
-    { name: 'Kontakt', href: '/kontakt' },
+    { name: t('navbar.contact'), href: '/kontakt' },
   ];
 
   return (
@@ -63,14 +66,16 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Top Right: Menu Trigger */}
-      <div className={`fixed top-0 right-0 p-8 z-50 transition-opacity duration-300 ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+      {/* Top Right: Menu Trigger & Language Switcher */}
+      <div className={`fixed top-0 right-0 p-8 z-50 transition-opacity duration-300 ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} flex items-center gap-8`}>
+        <LanguageSwitcher />
+
         <button
           onClick={() => setIsOpen(true)}
           className="group flex items-center gap-3 text-white mix-blend-difference"
         >
           <span className="hidden md:block font-bold tracking-widest uppercase text-sm group-hover:tracking-[0.2em] transition-all">
-            Menu
+            {t('navbar.menu')}
           </span>
           <div className="relative w-12 h-12 flex items-center justify-center">
             {/* RGB Border Ring */}
@@ -97,7 +102,7 @@ const Navbar = () => {
       <div className="fixed bottom-0 right-0 p-8 z-50 hidden md:block">
         <Link to="/kontakt" className="group flex items-center gap-4">
           <span className="font-bold tracking-widest uppercase text-sm text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow">
-            Zahájit projekt
+            {t('navbar.startProject')}
           </span>
           <div className="relative w-12 h-12 flex items-center justify-center group-hover:scale-110 transition-transform">
             {/* RGB Border Ring - Always Visible but subtle, bolder on hover */}
@@ -138,7 +143,7 @@ const Navbar = () => {
             <div className="hidden md:flex flex-col justify-between w-1/3 p-20 border-r border-white/10 bg-white/[0.02]">
               <div className="space-y-12">
                 <div>
-                  <h3 className="text-gray-500 font-mono mb-4 text-sm tracking-widest">LATEST PROJECT</h3>
+                  <h3 className="text-gray-500 font-mono mb-4 text-sm tracking-widest">{t('navbar.latestProject')}</h3>
                   <Link
                     to="/portfolio?project=4"
                     onClick={() => setIsOpen(false)}
@@ -155,25 +160,25 @@ const Navbar = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-gray-500 font-mono mb-4 text-sm tracking-widest">SOCIÁLNÍ SÍTĚ</h3>
+                  <h3 className="text-gray-500 font-mono mb-4 text-sm tracking-widest">{t('navbar.socials')}</h3>
                   <div className="flex flex-col gap-2">
                     <a href="#" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group">
                       <Instagram size={18} className="group-hover:stroke-neon-cyan transition-colors" />
-                      <span className="text-sm font-mono group-hover:tracking-wider transition-all">INSTAGRAM</span>
+                      <span className="text-sm font-mono group-hover:tracking-wider transition-all">{t('navbar.instagram')}</span>
                     </a>
                     <a href="#" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group">
                       <TikTokIcon size={18} className="group-hover:stroke-neon-magenta transition-colors" />
-                      <span className="text-sm font-mono group-hover:tracking-wider transition-all">TIKTOK</span>
+                      <span className="text-sm font-mono group-hover:tracking-wider transition-all">{t('navbar.tiktok')}</span>
                     </a>
                     <a href="#" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group">
                       <Linkedin size={18} className="group-hover:stroke-neon-yellow transition-colors" />
-                      <span className="text-sm font-mono group-hover:tracking-wider transition-all">LINKEDIN</span>
+                      <span className="text-sm font-mono group-hover:tracking-wider transition-all">{t('navbar.linkedin')}</span>
                     </a>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-gray-500 font-mono mb-4 text-sm tracking-widest">KONTAKT</h3>
+                  <h3 className="text-gray-500 font-mono mb-4 text-sm tracking-widest">{t('navbar.email')}</h3>
                   <a href="mailto:info@itakk.cz" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow">
                     info@itakk.cz
                   </a>
@@ -188,7 +193,7 @@ const Navbar = () => {
 
               <nav className="flex flex-col gap-2 relative z-10">
                 {navLinks.map((link, i) => (
-                  <div key={link.name} className="overflow-hidden py-4">
+                  <div key={link.href} className="overflow-hidden py-4">
                     <motion.div
                       initial={{ y: 100 }}
                       animate={{ y: 0 }}

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Section from './Section';
 import SectionTitle from './SectionTitle';
+import { useTranslation } from 'react-i18next';
 
 // User Assets
 const asMinarLogo = "/logos/Logo design AS MINAR.webp";
@@ -97,6 +98,7 @@ const FloatingLogo = ({ partner, mouseX, mouseY }) => {
 };
 
 const TrustedLogos = () => {
+    const { t } = useTranslation();
     const containerRef = useRef(null);
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -151,7 +153,7 @@ const TrustedLogos = () => {
             <div className="relative z-20 w-full h-full container mx-auto px-6 flex flex-col justify-center pointer-events-none">
                 <div className="text-center">
                     <SectionTitle
-                        title="Důvěřují nám"
+                        title={t('trustedLogos.title')}
                         align="center"
                     />
 
@@ -186,7 +188,7 @@ const TrustedLogos = () => {
 
                     <div className="mt-12 pointer-events-auto">
                         <Link to="/portfolio" className="group relative inline-flex items-center gap-4 px-8 py-4 bg-black/40 backdrop-blur-md border border-neon-cyan/30 rounded-full text-neon-cyan font-mono font-bold uppercase tracking-widest hover:bg-neon-cyan/10 hover:border-neon-cyan hover:shadow-[0_0_20px_rgba(4,255,247,0.3)] transition-all duration-300">
-                            <span className="relative z-10">Zobrazit naše práce</span>
+                            <span className="relative z-10">{t('trustedLogos.viewWork')}</span>
                             <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
 
                             {/* Inner Glow Polish */}

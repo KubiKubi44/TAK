@@ -6,26 +6,29 @@ import {
 } from 'lucide-react';
 import Section from './Section';
 import SectionTitle from './SectionTitle';
-
-const services = [
-    { icon: Layout, title: "Návrh UX a struktury" },
-    { icon: Palette, title: "Moderní UI design" },
-    { icon: Code, title: "Vývoj web aplikací" },
-    { icon: Smartphone, title: "Responzivní design" },
-    { icon: Search, title: "SEO a výkon" },
-    { icon: Database, title: "Integrace API" },
-    { icon: LifeBuoy, title: "Dlouhodobá podpora" }
-];
-
-const benefits = [
-    { icon: User, title: "Individuální přístup" },
-    { icon: MessageSquare, title: "Transparentní proces" },
-    { icon: Award, title: "Důraz na kvalitu" },
-    { icon: Cpu, title: "Moderní technologie" },
-    { icon: TrendingUp, title: "Škálovatelné řešení" }
-];
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+    const { t } = useTranslation();
+
+    const services = [
+        { icon: Layout, title: t('about.services.ux') },
+        { icon: Palette, title: t('about.services.ui') },
+        { icon: Code, title: t('about.services.webDev') },
+        { icon: Smartphone, title: t('about.services.responsive') },
+        { icon: Search, title: t('about.services.seo') },
+        { icon: Database, title: t('about.services.api') },
+        { icon: LifeBuoy, title: t('about.services.support') }
+    ];
+
+    const benefits = [
+        { icon: User, title: t('about.benefits.individual') },
+        { icon: MessageSquare, title: t('about.benefits.transparent') },
+        { icon: Award, title: t('about.benefits.quality') },
+        { icon: Cpu, title: t('about.benefits.tech') },
+        { icon: TrendingUp, title: t('about.benefits.scalable') }
+    ];
+
     return (
         <Section id="about" className="border-t border-white/5 pb-20">
             <div className="container mx-auto px-6">
@@ -33,33 +36,33 @@ const About = () => {
                 {/* 1. COMPACT HERO SECTION (Text Split) */}
                 <div className="mb-24">
                     <SectionTitle
-                        title="O nás"
-                        subtitle="Kdo jsme"
+                        title={t('about.title')}
+                        subtitle={t('about.subtitle')}
                         align="left"
                     />
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mt-8">
                         <div className="text-xl md:text-2xl text-white font-medium leading-relaxed">
                             <p className="mb-6">
-                                Jsme digitální studio zaměřené na návrh a vývoj moderních webových aplikací, které mají jasný cíl – pomáhat značkám růst a přinášet skutečné výsledky.
+                                {t('about.description1')}
                             </p>
                             <p className="text-neon-cyan">
-                                Vytváříme produkty, které nejen dobře vypadají, ale především plní svůj obchodní účel.
+                                {t('about.description2')}
                             </p>
                         </div>
 
                         <div className="space-y-6 text-gray-400 leading-relaxed text-base pt-2">
                             <p>
-                                Věříme, že kvalitní web není jen o designu, ale především o funkčnosti, rychlosti a dobrém uživatelském zážitku. Specializujeme se na kompletní realizaci od prvotního návrhu až po technickou implementaci a dlouhodobou udržitelnost.
+                                {t('about.description3')}
                             </p>
                             <p>
-                                Každý projekt vnímáme individuálně. Ať už jde o firemní prezentaci nebo interaktivní aplikaci, pracujeme s ověřenými postupy, které zajišťují rychlost, bezpečnost a bezproblémové fungování na všech zařízeních.
+                                {t('about.description4')}
                             </p>
                             <ul className="grid grid-cols-2 gap-4 pt-4 text-white font-mono text-sm uppercase tracking-wide">
-                                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-neon-cyan rounded-full"></div> Čistý kód</li>
-                                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-neon-magenta rounded-full"></div> Škálovatelnost</li>
-                                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-neon-yellow rounded-full"></div> Rychlost</li>
-                                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-white rounded-full"></div> Bezpečnost</li>
+                                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-neon-cyan rounded-full"></div> {t('about.cleanCode')}</li>
+                                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-neon-magenta rounded-full"></div> {t('about.scalability')}</li>
+                                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-neon-yellow rounded-full"></div> {t('about.speed')}</li>
+                                <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-white rounded-full"></div> {t('about.security')}</li>
                             </ul>
                         </div>
                     </div>
@@ -71,7 +74,7 @@ const About = () => {
                     {/* Left: Services (Holo Cards) */}
                     <div>
                         <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                            <code className="text-neon-cyan">&lt;</code> Co nabízíme <code className="text-neon-cyan">/&gt;</code>
+                            <code className="text-neon-cyan">&lt;</code> {t('about.whatWeOffer')} <code className="text-neon-cyan">/&gt;</code>
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {services.map((s, i) => (
@@ -98,7 +101,7 @@ const About = () => {
                     {/* Right: Benefits (Stylized Vertical List) */}
                     <div>
                         <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                            <span className="text-neon-magenta">#</span> Proč my
+                            <span className="text-neon-magenta">#</span> {t('about.whyUs')}
                         </h3>
                         <div className="space-y-4">
                             {benefits.map((b, i) => (

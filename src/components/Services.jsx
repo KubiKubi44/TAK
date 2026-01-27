@@ -3,57 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { Globe, Server, Palette, Layers, Box, Cpu, ArrowUpRight, X, CheckCircle, Zap } from 'lucide-react'; // Added icons
 import Section from './Section';
 import SectionTitle from './SectionTitle';
-
-const services = [
-    {
-        icon: Globe,
-        title: "Vývoj webů",
-        description: "Pixel-perfect weby pro škálování.",
-        extendedDescription: "Stavíme digitální pevnosti. Náš balík pro vývoj webu využívá nejnovější technologie React, Next.js a WebGL k poskytování zážitků, které nejsou jen vidět, ale i cítit. Od SEO optimalizovaných vstupních stránek po komplexní PWA ekosystémy zajišťujeme načítání v řádu milisekund a 100% skóre v Lighthouse.",
-        features: ["React / Next.js", "WebGL a 3D interaktivita", "Integrace Headless CMS", "Globální nasazení CDN"],
-        color: "neon-cyan"
-    },
-    {
-        icon: Layers,
-        title: "Webové aplikace",
-        description: "Komplexní SaaS platformy poháněné moderní infrastrukturou.",
-        extendedDescription: "Škálovatelnost není dodatečný nápad; je to základ. Navrhujeme robustní SaaS platformy schopné zvládnout miliony souběžných uživatelů. Naše architektura mikroslužeb zajišťuje nasazení s nulovým výpadkem a nekonečné horizontální škálování.",
-        features: ["Architektura mikroslužeb", "Real-time Socket.io", "AWS / Azure Cloud Native", "Enterprise zabezpečení"],
-        color: "neon-magenta"
-    },
-    {
-        icon: Palette,
-        title: "UI/UX Design",
-        description: "Kde se psychologie potkává s futuristickou estetikou.",
-        extendedDescription: "Design je vdechnutí života do kódu. Náš proces začíná hlubokou empatií k uživateli a končí pixel-perfect rozhraními, která uživatele vedou bez námahy. Simulujeme uživatelské toky, testujeme interakce A/B a vytváříme pohybové jazyky, které potěší.",
-        features: ["Prototypování ve Figmě", "Systém pohybového designu", "Mapování cesty uživatele", "Přístupnost (WCAG 2.1)"],
-        color: "neon-yellow"
-    },
-    {
-        icon: Server,
-        title: "IT Architektura",
-        description: "Robustní backend systémy zvládající miliony požadavků.",
-        extendedDescription: "Neviditelná páteř vašeho podnikání. Navrhujeme schémata databází a vrstvy API, které jsou odolné, bezpečné a rychlé. Ať už jde o SQL nebo NoSQL, GraphQL nebo REST, vybíráme ten správný nástroj pro misi.",
-        features: ["Optimalizace databází", "Návrh API Gateway", "Serverless funkce", "Automatizované CI/CD pipelines"],
-        color: "neon-cyan"
-    },
-    {
-        icon: Box,
-        title: "Produktový design",
-        description: "Od MVP po enterprise řešení, vedení celého životního cyklu.",
-        extendedDescription: "Měníme náčrty na ubrousku na lídry trhu. Naše metodika produktového designu zahrnuje rychlou iteraci, validaci uživateli a rozhodování založené na datech. Pomáháme vám rychleji najít shodu produktu s trhem.",
-        features: ["Strategie MVP", "Analýza trhu", "Iterativní designové sprinty", "Growth Hacking"],
-        color: "neon-magenta"
-    },
-    {
-        icon: Cpu,
-        title: "Optimalizace",
-        description: "Refaktoring starších systémů pro rychlost a bezpečnost.",
-        extendedDescription: "Rychlost je funkce. Auditujeme existující kódové základny, abychom identifikovali úzká místa, bezpečnostní chyby a technologický dlh. Poté chirurgicky refaktorujeme nebo přepisujeme kritické komponenty, abychom obnovili špičkový výkon.",
-        features: ["Refaktoring legacy kódu", "Bezpečnostní audity", "Ladění výkonu", "Redukce velikosti balíku"],
-        color: "neon-yellow"
-    }
-];
+import { useTranslation } from 'react-i18next';
 
 const shadowColors = {
     "neon-cyan": "rgba(4, 255, 247, 0.5)",
@@ -62,6 +12,8 @@ const shadowColors = {
 };
 
 const ServiceCard = ({ service, index, onClick }) => {
+    const { t } = useTranslation();
+
     return (
         <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -127,7 +79,7 @@ const ServiceCard = ({ service, index, onClick }) => {
                     </div>
 
                     <div className="flex items-center text-xs font-bold uppercase tracking-widest text-white/50 group-hover:text-white transition-colors">
-                        <span>Více info</span>
+                        <span>{t('services.moreInfo')}</span>
                         <ArrowUpRight size={14} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </div>
 
@@ -142,6 +94,8 @@ const ServiceCard = ({ service, index, onClick }) => {
 };
 
 const ServiceModal = ({ service, onClose }) => {
+    const { t } = useTranslation();
+
     if (!service) return null;
 
     return (
@@ -205,7 +159,7 @@ const ServiceModal = ({ service, onClose }) => {
 
                         <button className={`flex items-center gap-2 px-8 py-4 rounded-lg bg-${service.color === 'neon-cyan' ? 'neon-cyan' : service.color === 'neon-magenta' ? 'neon-magenta' : 'neon-yellow'} text-black font-bold uppercase tracking-wider hover:scale-105 transition-transform`}>
                             <Zap size={18} fill="currentColor" />
-                            Inicializovat protokol
+                            {t('services.initializeProtocol')}
                         </button>
                     </div>
                 </div>
@@ -216,8 +170,60 @@ const ServiceModal = ({ service, onClose }) => {
 };
 
 const Services = () => {
+    const { t } = useTranslation();
     const sectionRef = useRef(null);
     const [selectedService, setSelectedService] = useState(null);
+
+    const services = [
+        {
+            icon: Globe,
+            title: t('services.cards.webDev.title'),
+            description: t('services.cards.webDev.desc'),
+            extendedDescription: t('services.cards.webDev.extDesc'),
+            features: t('services.cards.webDev.features', { returnObjects: true }),
+            color: "neon-cyan"
+        },
+        {
+            icon: Layers,
+            title: t('services.cards.webApps.title'),
+            description: t('services.cards.webApps.desc'),
+            extendedDescription: t('services.cards.webApps.extDesc'),
+            features: t('services.cards.webApps.features', { returnObjects: true }),
+            color: "neon-magenta"
+        },
+        {
+            icon: Palette,
+            title: t('services.cards.uiUx.title'),
+            description: t('services.cards.uiUx.desc'),
+            extendedDescription: t('services.cards.uiUx.extDesc'),
+            features: t('services.cards.uiUx.features', { returnObjects: true }),
+            color: "neon-yellow"
+        },
+        {
+            icon: Server,
+            title: t('services.cards.itArch.title'),
+            description: t('services.cards.itArch.desc'),
+            extendedDescription: t('services.cards.itArch.extDesc'),
+            features: t('services.cards.itArch.features', { returnObjects: true }),
+            color: "neon-cyan"
+        },
+        {
+            icon: Box,
+            title: t('services.cards.productDesign.title'),
+            description: t('services.cards.productDesign.desc'),
+            extendedDescription: t('services.cards.productDesign.extDesc'),
+            features: t('services.cards.productDesign.features', { returnObjects: true }),
+            color: "neon-magenta"
+        },
+        {
+            icon: Cpu,
+            title: t('services.cards.optimization.title'),
+            description: t('services.cards.optimization.desc'),
+            extendedDescription: t('services.cards.optimization.extDesc'),
+            features: t('services.cards.optimization.features', { returnObjects: true }),
+            color: "neon-yellow"
+        }
+    ];
 
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -240,8 +246,8 @@ const Services = () => {
             <div className="container mx-auto px-6 relative z-10" ref={sectionRef}>
                 <div className="mb-20">
                     <SectionTitle
-                        title="Služby"
-                        subtitle="Akcerelované schopnosti"
+                        title={t('services.title')}
+                        subtitle={t('services.subtitle')}
                     />
                 </div>
 

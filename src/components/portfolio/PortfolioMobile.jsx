@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const PortfolioMobile = ({ projects, onSelect }) => {
+    const { t } = useTranslation();
+
     return (
         <div className="flex flex-col gap-12 pb-20">
             {projects.map((project, index) => (
@@ -57,7 +60,7 @@ const PortfolioMobile = ({ projects, onSelect }) => {
                             </div>
 
                             <div className="flex items-center gap-2 text-neon-cyan text-xs font-bold uppercase tracking-widest group-active:translate-x-2 transition-transform">
-                                Zobrazit detail
+                                {t('portfolio.viewDetail')}
                                 <ArrowRight size={14} />
                             </div>
                         </div>
@@ -68,7 +71,7 @@ const PortfolioMobile = ({ projects, onSelect }) => {
             {/* Simple decoration */}
             <div className="w-full h-px bg-white/10 my-8"></div>
             <p className="text-center text-gray-600 font-mono text-xs uppercase">
-                End of Stream
+                {t('portfolio.endOfStream')}
             </p>
         </div>
     );

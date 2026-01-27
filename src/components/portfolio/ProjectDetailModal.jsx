@@ -2,10 +2,12 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { X, Check, ArrowRight, Maximize2, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 
 const ProjectDetailModal = ({ project, onClose }) => {
     // Lightbox State: stores index of currently viewed image
     const [lightboxIndex, setLightboxIndex] = useState(null);
+    const { t } = useTranslation();
 
     // Mobile Check
     const [isMobile, setIsMobile] = useState(false);
@@ -115,7 +117,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-2 text-white hover:text-neon-cyan transition-colors text-sm font-bold uppercase tracking-widest group border border-white/20 bg-black/50 backdrop-blur-sm px-4 py-1 rounded-full hover:bg-white/10"
                                     >
-                                        <span>Navštívit web</span>
+                                        <span>{t('portfolio.visitWeb')}</span>
                                         <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                     </a>
                                 )}
@@ -130,14 +132,14 @@ const ProjectDetailModal = ({ project, onClose }) => {
                         {/* SECTION 2: OVERVIEW & STATS */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-white/10 pb-20">
                             <div className="md:col-span-2">
-                                <h3 className="text-xs font-mono text-gray-500 mb-4 uppercase tracking-widest">Shrnutí projektu</h3>
+                                <h3 className="text-xs font-mono text-gray-500 mb-4 uppercase tracking-widest">{t('portfolio.projectSummary')}</h3>
                                 <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
                                     {project.description}
                                 </p>
                             </div>
                             <div className="space-y-8">
                                 <div>
-                                    <h3 className="text-xs font-mono text-gray-500 mb-2 uppercase tracking-widest">Role</h3>
+                                    <h3 className="text-xs font-mono text-gray-500 mb-2 uppercase tracking-widest">{t('portfolio.role')}</h3>
                                     <p className="text-white font-light">{project.role || "Development & Design"}</p>
                                 </div>
                                 {project.stats && project.stats.map((stat, i) => (
@@ -152,13 +154,13 @@ const ProjectDetailModal = ({ project, onClose }) => {
                         {/* SECTION 3: GOAL & SOLUTION */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
                             <div>
-                                <h3 className="text-3xl font-bold text-white mb-8">Cíl</h3>
+                                <h3 className="text-3xl font-bold text-white mb-8">{t('portfolio.goal')}</h3>
                                 <p className="text-gray-400 leading-relaxed mb-8">
                                     {project.goal || "To create a high-performance digital experience that elevates the brand."}
                                 </p>
                             </div>
                             <div className="relative p-10 border border-white/10 bg-white/5 backdrop-blur-sm rounded-xl">
-                                <h3 className="text-3xl font-bold text-neon-cyan mb-8">Řešení</h3>
+                                <h3 className="text-3xl font-bold text-neon-cyan mb-8">{t('portfolio.solution')}</h3>
                                 <p className="text-gray-300 leading-relaxed mb-4">
                                     {project.solution || "We engineered a robust solution tailored to specific business needs."}
                                 </p>
@@ -168,7 +170,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
                         {/* SECTION 4: UI SHOWCASE - DESKTOP ONLY */}
                         {!isMobile && project.gallery && (
                             <div>
-                                <h3 className="text-xs font-mono text-gray-500 mb-8 uppercase tracking-widest text-center">Vizuální systém</h3>
+                                <h3 className="text-xs font-mono text-gray-500 mb-8 uppercase tracking-widest text-center">{t('portfolio.visualSystem')}</h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     {project.gallery.slice(0, 2).map((img, i) => (
                                         <div
@@ -201,7 +203,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
                         {/* CTA */}
                         <div className="text-center py-20">
                             <button className="group relative inline-flex items-center gap-4 px-8 py-4 bg-white text-black font-bold uppercase tracking-widest hover:bg-neon-cyan transition-colors">
-                                <span>Zahájit projekt</span>
+                                <span>{t('portfolio.startProject')}</span>
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </button>
                         </div>

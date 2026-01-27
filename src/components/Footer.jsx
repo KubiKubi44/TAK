@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Hexagon, Cpu, Zap, Radio } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+    const { t } = useTranslation();
+
     return (
         <footer className="relative pt-20 pb-10 overflow-hidden text-sm">
 
@@ -15,11 +18,11 @@ const Footer = () => {
 
                     {/* Left Panel */}
                     <div className="text-center md:text-right space-y-6">
-                        <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow font-mono text-xs uppercase tracking-widest border-b border-neon-cyan/20 pb-2 inline-block">Rychlé odkazy</h4>
+                        <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow font-mono text-xs uppercase tracking-widest border-b border-neon-cyan/20 pb-2 inline-block">{t('footer.quickLinks')}</h4>
                         <ul className="space-y-3 font-mono text-gray-400">
-                            <li><Link to="/" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">Domů</Link></li>
-                            <li><Link to="/o-nas" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">O nás</Link></li>
-                            <li><Link to="/sluzby" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">Služby</Link></li>
+                            <li><Link to="/" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">{t('navbar.home')}</Link></li>
+                            <li><Link to="/o-nas" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">{t('navbar.about')}</Link></li>
+                            <li><Link to="/sluzby" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">{t('navbar.services')}</Link></li>
                         </ul>
                     </div>
 
@@ -33,7 +36,7 @@ const Footer = () => {
 
                     {/* Right Panel */}
                     <div className="text-center md:text-left space-y-6">
-                        <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow font-mono text-xs uppercase tracking-widest border-b border-neon-cyan/20 pb-2 inline-block">Externí kanály</h4>
+                        <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow font-mono text-xs uppercase tracking-widest border-b border-neon-cyan/20 pb-2 inline-block">{t('footer.externalChannels')}</h4>
                         <ul className="space-y-3 font-mono text-gray-400">
                             <li><a href="#" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">Instagram</a></li>
                             <li><a href="#" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">TikTok</a></li>
@@ -50,7 +53,7 @@ const Footer = () => {
                         <span>SECURE LAYER: ACTIVE</span>
                     </div>
                     <div>
-                        &copy; 2025 TAK
+                        &copy; 2025 TAK. {t('footer.rights')}
                     </div>
                 </div>
 

@@ -1,8 +1,12 @@
 import { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowRight, Code, Cpu, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const HomeAbout = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="py-32 px-6 relative z-10 overflow-hidden">
             <div className="container mx-auto max-w-6xl">
@@ -16,7 +20,7 @@ const HomeAbout = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-8 leading-none">
-                            Jsme <br />
+                            {t('homeAbout.weAre')} <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow">
                                 TAK
                             </span>
@@ -25,17 +29,17 @@ const HomeAbout = () => {
                         <div className="h-1 w-24 bg-neon-cyan mb-10"></div>
 
                         <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-8">
-                            Jsme kolektiv digitálních architektů a kreativních inženýrů. Nestavíme jen weby; konstruujeme pohlcující digitální reality, které pozvednou značky nad rámec běžného hluku.
+                            {t('homeAbout.description1')}
                         </p>
 
                         <p className="text-gray-400 mb-10 leading-relaxed">
-                            Specializujeme se na vysoce výkonné webové aplikace, 3D interaktivní zážitky a futuristický branding. Naším posláním je spojit umění a inženýrství do jedinečného, silného vyjádření vaší identity.
+                            {t('homeAbout.description2')}
                         </p>
 
-                        <a href="/o-nas" className="group inline-flex items-center gap-2 text-neon-cyan font-mono uppercase tracking-widest hover:text-white transition-colors">
-                            <span>Více o nás</span>
+                        <Link to="/o-nas" className="group inline-flex items-center gap-2 text-neon-cyan font-mono uppercase tracking-widest hover:text-white transition-colors">
+                            <span>{t('homeAbout.moreAbout')}</span>
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </a>
+                        </Link>
                     </motion.div>
 
                     {/* Right Column: Visual / Stats with 3D Interaction */}
@@ -47,6 +51,7 @@ const HomeAbout = () => {
 };
 
 const TiltCard = () => {
+    const { t } = useTranslation();
     const x = useMotionValue(0);
     const y = useMotionValue(0);
 
@@ -110,9 +115,9 @@ const TiltCard = () => {
                 className="flex flex-col gap-6 relative z-10"
             >
                 {[
-                    { icon: Cpu, title: "Inženýrství", desc: "Technologické sady nové generace pro rychlost a škálování.", color: "text-neon-cyan", border: "border-neon-cyan" },
-                    { icon: Globe, title: "Globální dosah", desc: "Digitální řešení, která spojují s publikem po celém světě.", color: "text-neon-magenta", border: "border-neon-magenta" },
-                    { icon: Code, title: "Čistý kód", desc: "Udržovatelný, škálovatelný a postavený tak, aby vydržel.", color: "text-neon-yellow", border: "border-neon-yellow" }
+                    { icon: Cpu, title: t('homeAbout.cards.engineering.title'), desc: t('homeAbout.cards.engineering.desc'), color: "text-neon-cyan", border: "border-neon-cyan" },
+                    { icon: Globe, title: t('homeAbout.cards.globalReach.title'), desc: t('homeAbout.cards.globalReach.desc'), color: "text-neon-magenta", border: "border-neon-magenta" },
+                    { icon: Code, title: t('homeAbout.cards.cleanCode.title'), desc: t('homeAbout.cards.cleanCode.desc'), color: "text-neon-yellow", border: "border-neon-yellow" }
                 ].map((item, index) => (
                     <motion.div
                         key={index}

@@ -1,0 +1,275 @@
+{
+    "navbar": {
+        "home": "Domů",
+        "about": "O nás",
+        "services": "Služby",
+        "portfolio": "Portfolio",
+        "contact": "Kontakt",
+        "menu": "Menu",
+        "startProject": "Zahájit projekt",
+        "latestProject": "NOVÝ PROJEKT",
+        "socials": "SOCIÁLNÍ SÍTĚ",
+        "instagram": "INSTAGRAM",
+        "tiktok": "TIKTOK",
+        "linkedin": "LINKEDIN",
+        "email": "KONTAKT"
+    },
+    "footer": {
+        "quickLinks": "Rychlé odkazy",
+        "externalChannels": "Externí kanály",
+        "rights": "Všechna práva vyhrazena"
+    },
+    "hero": {
+        "systemOnline": "Systém Online"
+    },
+    "about": {
+        "title": "O nás",
+        "subtitle": "Kdo jsme",
+        "description1": "Jsme digitální studio zaměřené na návrh a vývoj moderních webových aplikací, které mají jasný cíl – pomáhat značkám růst a přinášet skutečné výsledky.",
+        "description2": "Vytváříme produkty, které nejen dobře vypadají, ale především plní svůj obchodní účel.",
+        "description3": "Věříme, že kvalitní web není jen o designu, ale především o funkčnosti, rychlosti a dobrém uživatelském zážitku. Specializujeme se na kompletní realizaci od prvotního návrhu až po technickou implementaci a dlouhodobou udržitelnost.",
+        "description4": "Každý projekt vnímáme individuálně. Ať už jde o firemní prezentaci nebo interaktivní aplikaci, pracujeme s ověřenými postupy, které zajišťují rychlost, bezpečnost a bezproblémové fungování na všech zařízeních.",
+        "cleanCode": "Čistý kód",
+        "scalability": "Škálovatelnost",
+        "speed": "Rychlost",
+        "security": "Bezpečnost",
+        "whatWeOffer": "Co nabízíme",
+        "whyUs": "Proč my",
+        "services": {
+            "ux": "Návrh UX a struktury",
+            "ui": "Moderní UI design",
+            "webDev": "Vývoj web aplikací",
+            "responsive": "Responzivní design",
+            "seo": "SEO a výkon",
+            "api": "Integrace API",
+            "support": "Dlouhodobá podpora"
+        },
+        "benefits": {
+            "individual": "Individuální přístup",
+            "transparent": "Transparentní proces",
+            "quality": "Důraz na kvalitu",
+            "tech": "Moderní technologie",
+            "scalable": "Škálovatelné řešení"
+        }
+    },
+    "services": {
+        "title": "Služby",
+        "subtitle": "Akcelerované schopnosti",
+        "moreInfo": "Více info",
+        "initializeProtocol": "Inicializovat protokol",
+        "cards": {
+            "webDev": {
+                "title": "Vývoj webů",
+                "desc": "Pixel-perfect weby pro škálování.",
+                "extDesc": "Stavíme digitální pevnosti. Náš balík pro vývoj webu využívá nejnovější technologie React, Next.js a WebGL k poskytování zážitků, které nejsou jen vidět, ale i cítit. Od SEO optimalizovaných vstupních stránek po komplexní PWA ekosystémy zajišťujeme načítání v řádu milisekund a 100% skóre v Lighthouse.",
+                "features": [
+                    "React / Next.js",
+                    "WebGL a 3D interaktivita",
+                    "Integrace Headless CMS",
+                    "Globální nasazení CDN"
+                ]
+            },
+            "webApps": {
+                "title": "Webové aplikace",
+                "desc": "Komplexní SaaS platformy poháněné moderní infrastrukturou.",
+                "extDesc": "Škálovatelnost není dodatečný nápad; je to základ. Navrhujeme robustní SaaS platformy schopné zvládnout miliony souběžných uživatelů. Naše architektura mikroslužeb zajišťuje nasazení s nulovým výpadkem a nekonečné horizontální škálování.",
+                "features": [
+                    "Architektura mikroslužeb",
+                    "Real-time Socket.io",
+                    "AWS / Azure Cloud Native",
+                    "Enterprise zabezpečení"
+                ]
+            },
+            "uiUx": {
+                "title": "UI/UX Design",
+                "desc": "Kde se psychologie potkává s futuristickou estetikou.",
+                "extDesc": "Design je vdechnutí života do kódu. Náš proces začíná hlubokou empatií k uživateli a končí pixel-perfect rozhraními, která uživatele vedou bez námahy. Simulujeme uživatelské toky, testujeme interakce A/B a vytváříme pohybové jazyky, které potěší.",
+                "features": [
+                    "Prototypování ve Figmě",
+                    "Systém pohybového designu",
+                    "Mapování cesty uživatele",
+                    "Přístupnost (WCAG 2.1)"
+                ]
+            },
+            "itArch": {
+                "title": "IT Architektura",
+                "desc": "Robustní backend systémy zvládající miliony požadavků.",
+                "extDesc": "Neviditelná páteř vašeho podnikání. Navrhujeme schémata databází a vrstvy API, které jsou odolné, bezpečné a rychlé. Ať už jde o SQL nebo NoSQL, GraphQL nebo REST, vybíráme ten správný nástroj pro misi.",
+                "features": [
+                    "Optimalizace databází",
+                    "Návrh API Gateway",
+                    "Serverless funkce",
+                    "Automatizované CI/CD pipelines"
+                ]
+            },
+            "productDesign": {
+                "title": "Produktový design",
+                "desc": "Od MVP po enterprise řešení, vedení celého životního cyklu.",
+                "extDesc": "Měníme náčrty na ubrousku na lídry trhu. Naše metodika produktového designu zahrnuje rychlou iteraci, validaci uživateli a rozhodování založené na datech. Pomáháme vám rychleji najít shodu produktu s trhem.",
+                "features": [
+                    "Strategie MVP",
+                    "Analýza trhu",
+                    "Iterativní designové sprinty",
+                    "Growth Hacking"
+                ]
+            },
+            "optimization": {
+                "title": "Optimalizace",
+                "desc": "Refaktoring starších systémů pro rychlost a bezpečnost.",
+                "extDesc": "Rychlost je funkce. Auditujeme existující kódové základny, abychom identifikovali úzká místa, bezpečnostní chyby a technologický dlh. Poté chirurgicky refaktorujeme nebo přepisujeme kritické komponenty, abychom obnovili špičkový výkon.",
+                "features": [
+                    "Refaktoring legacy kódu",
+                    "Bezpečnostní audity",
+                    "Ladění výkonu",
+                    "Redukce velikosti balíku"
+                ]
+            }
+        }
+    },
+    "contact": {
+        "title": "Kontaktujte nás",
+        "subtitle": "Zahajte svůj projekt",
+        "ctaTitle": "Pojďme vytvořit něco",
+        "ctaTitleHighlight": "výjimečného",
+        "ctaDesc": "Ať už máte převratný nápad nebo potřebujete modernizovat stávající infrastrukturu, jsme tu pro vás. Ozvěte se nám a probereme vaši vizi.",
+        "writeUs": "Napište nám",
+        "callUs": "Zavolejte nám",
+        "form": {
+            "name": "Jméno",
+            "email": "Email",
+            "subject": "Předmět",
+            "message": "Zpráva",
+            "subjects": {
+                "general": "Obecný dotaz",
+                "project": "Zahájit projekt",
+                "career": "Kariéra"
+            },
+            "placeholders": {
+                "name": "Jan Novák",
+                "email": "jan@example.com",
+                "message": "Povězte nám o svém projektu..."
+            },
+            "submit": "ODESLAT ZPRÁVU"
+        }
+    },
+    "homeAbout": {
+        "weAre": "Jsme",
+        "description1": "Jsme kolektiv digitálních architektů a kreativních inženýrů. Nestavíme jen weby; konstruujeme pohlcující digitální reality, které pozvednou značky nad rámec běžného hluku.",
+        "description2": "Specializujeme se na vysoce výkonné webové aplikace, 3D interaktivní zážitky a futuristický branding. Naším posláním je spojit umění a inženýrství do jedinečného, silného vyjádření vaší identity.",
+        "moreAbout": "Více o nás",
+        "cards": {
+            "engineering": {
+                "title": "Inženýrství",
+                "desc": "Technologické sady nové generace pro rychlost a škálování."
+            },
+            "global": {
+                "title": "Globální dosah",
+                "desc": "Digitální řešení, která spojují s publikem po celém světě."
+            },
+            "cleanCode": {
+                "title": "Čistý kód",
+                "desc": "Udržovatelný, škálovatelný a postavený tak, aby vydržel."
+            }
+        }
+    },
+    "portfolio": {
+        "title": "Vybrané práce",
+        "subtitle": "Naše portfolio",
+        "viewAll": "Zobrazit všechny projekty",
+        "footerTagline": "Každý projekt je příležitostí vytvořit něco výjimečného.",
+        "viewDetail": "Zobrazit detail",
+        "visitWeb": "Navštívit web",
+        "projectSummary": "Shrnutí projektu",
+        "role": "Role",
+        "goal": "Cíl",
+        "solution": "Řešení",
+        "startProject": "Zahájit projekt",
+        "endOfStream": "Konec streamu",
+        "hero": {
+            "badge": "Ověřené projekty",
+            "titlePrefix": "Vybrané",
+            "titleHighlight": "Práce",
+            "description": "Kolekce digitálních zážitků navržených pro rychlost, estetiku a maximální dopad."
+        },
+        "projects": {
+            "minar": {
+                "description": "Kompletní návrh a realizace responzivního firemního webu pro společnost působící v oblasti hydroizolací staveb a prodeje specializovaných materiálů.",
+                "role": "Návrh struktury a UX, UI design, implementace, testování responzivity",
+                "goal": "Cílem projektu bylo vytvořit moderní, přehlednou a důvěryhodnou prezentaci značky, která usnadní orientaci uživatelům, jasně komunikuje nabídku služeb a produktů a podporuje získávání nových poptávek.",
+                "solution": "Web klade důraz na srozumitelnou informační strukturu, intuitivní navigaci a konzistentní vizuální styl. Součástí řešení je katalog produktů, sekce půjčovny vybavení, přehledná prezentace týmu a optimalizovaná kontaktní stránka s mapovou integrací. Rozhraní je plně responzivní a optimalizované pro různá zařízení s důrazem na rychlost načítání a čitelnost obsahu."
+            },
+            "berticka": {
+                "description": "Komplexní návrh a realizace moderní digitální platformy, která propojuje rybářskou komunitu s charitativní pomocí.",
+                "role": "UX strategie, UI design, frontend implementace",
+                "goal": "Vytvořit atraktivní, důvěryhodný a snadno použitelný web, který motivuje návštěvníky k účasti na závodech, usnadňuje registraci týmů a transparentně komunikuje smysl celé iniciativy. Silná vizuální identita podporuje emoce spojené s pobytem v přírodě.",
+                "solution": "Platforma je navržena s důrazem na výkon, responzivitu a škálovatelnost. Klíčovým prvkem je online registrační proces, který zjednodušuje administrativu. Součástí řešení je přehled nadcházejících akcí a sekce partnerů."
+            },
+            "asminar": {
+                "description": "Komplexní návrh a realizace moderní webové prezentace pro společnost AS Minar – aplikační středisko specializované na profesionální hydroizolační a izolační systémy.",
+                "role": "UX návrh struktury, UI design, frontend implementace, responzivní ladění",
+                "goal": "Cílem projektu bylo vytvořit reprezentativní digitální identitu, která posiluje důvěryhodnost značky, jasně komunikuje rozsah služeb a efektivně podporuje poptávkový proces. Web musel působit profesionálně a zároveň sloužit jako praktický obchodní nástroj.",
+                "solution": "Web je postaven na přehledné informační architektuře a výrazném vizuálním stylu. Klíčovou roli hraje stránka služeb se strukturovanými segmenty a sekce portfolia pro budování důvěry. Kontaktní stránka je optimalizována pro minimalizaci bariér s mapovou integrací a jasnými CTA."
+            },
+            "jaz": {
+                "description": "Návrh a realizace moderní webové prezentace pro rekreační ubytování Chalupa JAZ v Bedřichově v Jizerských horách.",
+                "role": "UX návrh, UI design, frontend implementace, animace",
+                "goal": "Vytvořit atraktivní a důvěryhodnou digitální prezentaci, která návštěvníkům poskytuje klíčové informace přehlednou formou a podporuje rozhodnutí k rezervaci. Důraz na silnou vizuální stránku a emoce.",
+                "solution": "Web kombinuje fotografie interiéru a lokality s jasně strukturovaným obsahem. Rozhraní využívá kartové layouty, jemné animace a transparentní cenovou komunikaci. Responzivní design zajišťuje pohodlné prohlížení na všech zařízeních."
+            },
+            "stejskal": {
+                "description": "Komplexní návrh a realizace moderní prezentační webové stránky pro stavební společnost s důrazem na důvěryhodnost a konverzi.",
+                "role": "UI/UX Design, Frontend Development, Komponentová architektura",
+                "goal": "Navrhnout a vyvinout moderní prezentační web s důrazem na důvěryhodnost, výkon a jasnou konverzní cestu. Design pracuje s tmavým industriálním vizuálem.",
+                "solution": "Web obsahuje dynamickou úvodní sekci s 3D hero efektem, přehledné členění služeb a samostatnou sekce realizací. Technické řešení na React + Vite zajišťuje rychlost a snadnou údržbu."
+            }
+        }
+    },
+    "trustedLogos": {
+        "title": "Důvěřují nám",
+        "viewWork": "Zobrazit naše práce"
+    },
+    "featuresGrid": {
+        "title": "Technologie",
+        "subtitle": "Náš Stack",
+        "cards": {
+            "blitzSpeed": {
+                "title": "Blesková rychlost",
+                "subtitle": "Optimalizováno pro maximální výkon s 99+ skóre v Lighthouse."
+            },
+            "ironcladSecurity": {
+                "title": "Neprůstřelná bezpečnost",
+                "subtitle": "Ochrana na podnikové úrovni integrovaná do každé vrstvy kódu."
+            },
+            "modernTech": {
+                "title": "Moderní technologie",
+                "subtitle": "Postaveno na nejnovějších frameworcích: React, Tailwind a Vite."
+            }
+        }
+    },
+    "process": {
+        "title": "Proces",
+        "subtitle": "Systematická exekuce",
+        "steps": {
+            "analysis": {
+                "title": "Analýza a strategie",
+                "description": "Mapujeme digitální terén. Analyzujeme vaše cíle, publikum a konkurenci, abychom definovali přesnou trajektorii k úspěchu."
+            },
+            "uiux": {
+                "title": "UI/UX Inženýrství",
+                "description": "Architektujeme zážitek. Wireframy se mění na high-fidelity rozhraní navržená pro maximální zapojení a konverzi."
+            },
+            "development": {
+                "title": "Agilní vývoj",
+                "description": "Píšeme logiku. Pomocí moderních frameworků a škálovatelné architektury stavíme robustní systémy v rychlých, iterativních sprintech."
+            },
+            "testing": {
+                "title": "Důkladné testování",
+                "description": "Neprůstřelný kód. Automatizované a manuální testování zajišťuje výkon, bezpečnost a stabilitu na všech zařízeních."
+            },
+            "launch": {
+                "title": "Spuštění a evoluce",
+                "description": "Zapínáme systém. Nasazení je jen začátek; poskytujeme průběžnou podporu, aby se váš produkt mohl vyvíjet."
+            }
+        }
+    }
+}

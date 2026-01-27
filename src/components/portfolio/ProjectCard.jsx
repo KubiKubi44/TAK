@@ -1,10 +1,12 @@
 import { useRef, memo } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const ProjectCard = memo(({ project, index, onClick }) => {
     // DESKTOP LOGIC (Original Form)
     const ref = useRef(null);
+    const { t } = useTranslation();
 
     // 3D Tilt Logic
     const x = useMotionValue(0);
@@ -94,7 +96,7 @@ const ProjectCard = memo(({ project, index, onClick }) => {
                                     initial={{ x: -20, opacity: 0 }}
                                     whileHover={{ x: 0, opacity: 1 }}
                                     className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center translate-x-10 group-hover:translate-x-0 transition-transform duration-300 hover:bg-neon-cyan"
-                                    title="Navštívit web"
+                                    title={t('portfolio.visitWeb')}
                                 >
                                     <ArrowUpRight size={20} />
                                 </motion.a>
@@ -136,7 +138,7 @@ const ProjectCard = memo(({ project, index, onClick }) => {
                                     }}
                                     className="px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/50 rounded-full text-neon-cyan text-xs font-bold uppercase tracking-widest backdrop-blur-md active:bg-neon-cyan active:text-black transition-colors"
                                 >
-                                    Zobrazit detail
+                                    {t('portfolio.viewDetail')}
                                 </button>
                             </div>
                         </div>

@@ -1,51 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Search, PenTool, Code, CheckCircle, Rocket } from 'lucide-react';
 import Section from './Section';
 import SectionTitle from './SectionTitle';
-
-const steps = [
-    {
-        icon: Search,
-        title: "Analýza a strategie",
-        description: "Mapujeme digitální terén. Analyzujeme vaše cíle, publikum a konkurenci, abychom definovali přesnou trajektorii k úspěchu.",
-        color: "text-neon-cyan",
-        borderColor: "border-neon-cyan",
-        shadow: "shadow-[0_0_20px_rgba(4,255,247,0.3)]"
-    },
-    {
-        icon: PenTool,
-        title: "UI/UX Inženýrství",
-        description: "Architektujeme zážitek. Wireframy se mění na high-fidelity rozhraní navržená pro maximální zapojení a konverzi.",
-        color: "text-neon-magenta",
-        borderColor: "border-neon-magenta",
-        shadow: "shadow-[0_0_20px_rgba(247,4,255,0.3)]"
-    },
-    {
-        icon: Code,
-        title: "Agilní vývoj",
-        description: "Píšeme logiku. Pomocí moderních frameworků a škálovatelné architektury stavíme robustní systémy v rychlých, iterativních sprintech.",
-        color: "text-neon-yellow",
-        borderColor: "border-neon-yellow",
-        shadow: "shadow-[0_0_20px_rgba(255,247,4,0.3)]"
-    },
-    {
-        icon: CheckCircle,
-        title: "Důkladné testování",
-        description: "Neprůstřelný kód. Automatizované a manuální testování zajišťuje výkon, bezpečnost a stabilitu na všech zařízeních.",
-        color: "text-neon-cyan",
-        borderColor: "border-neon-cyan",
-        shadow: "shadow-[0_0_20px_rgba(4,255,247,0.3)]"
-    },
-    {
-        icon: Rocket,
-        title: "Spuštění a evoluce",
-        description: "Zapínáme systém. Nasazení je jen začátek; poskytujeme průběžnou podporu, aby se váš produkt mohl vyvíjet.",
-        color: "text-neon-magenta",
-        borderColor: "border-neon-magenta",
-        shadow: "shadow-[0_0_20px_rgba(247,4,255,0.3)]"
-    }
-];
+import { useTranslation } from 'react-i18next';
 
 const ProcessStep = ({ step, index }) => {
     const isEven = index % 2 === 0;
@@ -99,11 +57,55 @@ const ProcessStep = ({ step, index }) => {
 };
 
 const Process = () => {
+    const { t } = useTranslation();
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start end", "end start"]
     });
+
+    const steps = useMemo(() => [
+        {
+            icon: Search,
+            title: t('process.steps.analysis.title'),
+            description: t('process.steps.analysis.description'),
+            color: "text-neon-cyan",
+            borderColor: "border-neon-cyan",
+            shadow: "shadow-[0_0_20px_rgba(4,255,247,0.3)]"
+        },
+        {
+            icon: PenTool,
+            title: t('process.steps.uiux.title'),
+            description: t('process.steps.uiux.description'),
+            color: "text-neon-magenta",
+            borderColor: "border-neon-magenta",
+            shadow: "shadow-[0_0_20px_rgba(247,4,255,0.3)]"
+        },
+        {
+            icon: Code,
+            title: t('process.steps.development.title'),
+            description: t('process.steps.development.description'),
+            color: "text-neon-yellow",
+            borderColor: "border-neon-yellow",
+            shadow: "shadow-[0_0_20px_rgba(255,247,4,0.3)]"
+        },
+        {
+            icon: CheckCircle,
+            title: t('process.steps.testing.title'),
+            description: t('process.steps.testing.description'),
+            color: "text-neon-cyan",
+            borderColor: "border-neon-cyan",
+            shadow: "shadow-[0_0_20px_rgba(4,255,247,0.3)]"
+        },
+        {
+            icon: Rocket,
+            title: t('process.steps.launch.title'),
+            description: t('process.steps.launch.description'),
+            color: "text-neon-magenta",
+            borderColor: "border-neon-magenta",
+            shadow: "shadow-[0_0_20px_rgba(247,4,255,0.3)]"
+        }
+    ], [t]);
 
     // Map scroll total progress to the height of the line
     const height = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
@@ -113,8 +115,8 @@ const Process = () => {
             <div className="container mx-auto px-6 relative z-10" ref={containerRef}>
                 <div className="mb-20">
                     <SectionTitle
-                        title="Proces"
-                        subtitle="Systematická exekuce"
+                        title={t('process.title')}
+                        subtitle={t('process.subtitle')}
                     />
                 </div>
 
