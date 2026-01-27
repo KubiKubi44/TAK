@@ -116,7 +116,7 @@ const TiltCard = () => {
             >
                 {[
                     { icon: Cpu, title: t('homeAbout.cards.engineering.title'), desc: t('homeAbout.cards.engineering.desc'), color: "text-neon-cyan", border: "border-neon-cyan" },
-                    { icon: Globe, title: t('homeAbout.cards.globalReach.title'), desc: t('homeAbout.cards.globalReach.desc'), color: "text-neon-magenta", border: "border-neon-magenta" },
+                    { icon: Globe, title: t('homeAbout.cards.global.title'), desc: t('homeAbout.cards.global.desc'), color: "text-neon-magenta", border: "border-neon-magenta" },
                     { icon: Code, title: t('homeAbout.cards.cleanCode.title'), desc: t('homeAbout.cards.cleanCode.desc'), color: "text-neon-yellow", border: "border-neon-yellow" }
                 ].map((item, index) => (
                     <motion.div

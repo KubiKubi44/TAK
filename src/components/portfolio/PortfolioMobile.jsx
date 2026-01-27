@@ -30,7 +30,7 @@ const PortfolioMobile = ({ projects, onSelect }) => {
                         {/* Image - Fixed Height, restricted to avoid memory limit */}
                         <div className="relative w-full h-64 overflow-hidden bg-white/5">
                             <img
-                                src={project.image}
+                                src={project.imageMobile || project.image}
                                 alt={project.title}
                                 className="w-full h-full object-cover object-top"
                                 loading="lazy"
