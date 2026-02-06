@@ -1,10 +1,12 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const GlobalBackground = ({ className }) => {
     // Particle System (Preserved from Hero3D)
-    const particles = useMemo(() => {
-        return [...Array(50)].map((_, i) => ({
+    const [particles, setParticles] = useState([]);
+
+    useEffect(() => {
+        const generatedParticles = [...Array(50)].map((_, i) => ({
             id: i,
             x: Math.random() * 100 + '%',
             y: Math.random() * 100 + '%',
@@ -13,6 +15,7 @@ const GlobalBackground = ({ className }) => {
             duration: Math.random() * 3 + 2,
             delay: Math.random() * 2,
         }));
+        setParticles(generatedParticles);
     }, []);
 
     return (

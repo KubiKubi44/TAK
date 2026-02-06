@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
@@ -117,6 +117,18 @@ const TrustedLogos = () => {
         mouseY.set(y * 2);
     };
 
+    useEffect(() => {
+        const style = document.createElement('style');
+        style.textContent = `
+          .perspective-1000 { perspective: 1000px; }
+          .preserve-3d { transform-style: preserve-3d; }
+        `;
+        document.head.appendChild(style);
+        return () => {
+            document.head.removeChild(style);
+        };
+    }, []);
+
     return (
         <Section
             id="trusted-partners"
@@ -201,13 +213,5 @@ const TrustedLogos = () => {
         </Section>
     );
 };
-
-// Add perspective utility if not present in tailwind config
-const style = document.createElement('style');
-style.textContent = `
-  .perspective-1000 { perspective: 1000px; }
-  .preserve-3d { transform-style: preserve-3d; }
-`;
-document.head.appendChild(style);
 
 export default TrustedLogos;

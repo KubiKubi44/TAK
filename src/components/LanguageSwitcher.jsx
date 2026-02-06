@@ -9,8 +9,8 @@ const LanguageSwitcher = () => {
         i18n.changeLanguage(newLang);
     };
 
-    const isCs = i18n.language.startsWith('cs');
-    const isEn = i18n.language.startsWith('en');
+    const isCs = (i18n.language || 'cs').startsWith('cs');
+    const isEn = (i18n.language || 'cs').startsWith('en');
 
     return (
         <button

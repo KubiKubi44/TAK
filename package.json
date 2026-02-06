@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@unhead/react": "^2.1.2",
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.3.1",
     "framer-motion": "^12.23.26",
@@ -20,20 +19,23 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-i18next": "^16.5.3",
-    "react-router-dom": "^7.11.0",
-    "unhead": "^2.1.2"
+    "react-router-dom": "^7.11.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@unhead/react": "^2.1.3",
+    "@unhead/ssr": "^2.1.3",
     "@vitejs/plugin-react": "^5.1.1",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "tailwindcss": "^4.1.18",
-    "vite": "^7.2.4"
+    "unhead": "^2.1.3",
+    "vite": "^7.2.4",
+    "vite-prerender-plugin": "^0.5.12"
   }
 }
