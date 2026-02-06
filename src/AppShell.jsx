@@ -8,10 +8,12 @@ import GlobalBackground from "./components/GlobalBackground";
 import AppRoutes from "./AppRoutes";
 
 export default function AppShell() {
+    const isPrerender = typeof globalThis !== "undefined" && globalThis.__PRERENDER__;
+
     return (
         <div className="bg-bg-dark min-h-screen text-white selection:bg-neon-cyan selection:text-black cursor-none flex flex-col relative z-0">
-            <GlobalBackground />
-            <CustomCursor />
+            {!isPrerender && <GlobalBackground />}
+            {!isPrerender && <CustomCursor />}
             <Navbar />
 
             <main className="flex-grow">
