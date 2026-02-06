@@ -57,71 +57,82 @@
         "subtitle": "Accelerated Capabilities",
         "moreInfo": "More Info",
         "initializeProtocol": "Initialize Protocol",
+        "modal": {
+            "id": "ID:",
+            "systemOnline": "System Online",
+            "initiatingProtocol": "INITIATING PROTOCOL...",
+            "verifyingDependencies": "VERIFYING DEPENDENCIES...",
+            "moduleLoaded": "MODULE LOADED SUCCESSFULLY.",
+            "overview": "Overview",
+            "modulesFeatures": "Modules & Features",
+            "detail": "Detail"
+        },
         "cards": {
             "webDev": {
                 "title": "Web Development",
-                "desc": "Pixel-perfect websites for scale.",
-                "extDesc": "We build digital fortresses. Our web development stack leverages the latest React, Next.js, and WebGL technologies to deliver experiences that are not just seen, but felt. From SEO-optimized landing pages to complex PWA ecosystems, we ensure millisecond load times and 100% Lighthouse scores.",
+                "desc": "Modern websites that not only look great but actually sell.",
+                "extDesc": "We don’t just make digital business cards. We build powerful business tools that turn visitors into customers. From SEO-optimized landing pages to complex PWA ecosystems.",
                 "features": [
-                    "React / Next.js",
-                    "WebGL & 3D Interactivity",
-                    "Headless CMS Integration",
-                    "Global CDN Deployment"
+                    "Custom Tech (WordPress / React / Next.js)",
+                    "Responsive Design (Mobile-First)",
+                    "Speed & Performance",
+                    "SEO Ready",
+                    "Conversion Elements"
                 ]
             },
-            "webApps": {
-                "title": "Web Applications",
-                "desc": "Complex SaaS platforms powered by modern infrastructure.",
-                "extDesc": "Scalability is not an afterthought; it is the foundation. We design robust SaaS platforms capable of handling millions of concurrent users. Our microservices architecture ensures zero-downtime deployments and infinite horizontal scaling.",
+            "appDev": {
+                "title": "App Development",
+                "desc": "Digitizing your business. From simple tools to complex systems.",
+                "extDesc": "When off-the-shelf solutions aren't enough, we build software tailored exactly to your processes. Robust, scalable, and secure.",
                 "features": [
-                    "Microservices Architecture",
-                    "Real-time Socket.io",
-                    "AWS / Azure Cloud Native",
-                    "Enterprise Security"
+                    "Internal Company Systems",
+                    "Client Portals",
+                    "Web Applications (SaaS)",
+                    "System Integration (API)"
                 ]
             },
-            "uiUx": {
-                "title": "UI/UX Design",
-                "desc": "Where psychology meets futuristic aesthetics.",
-                "extDesc": "Design is breathing life into code. Our process begins with deep user empathy and ends with pixel-perfect interfaces that guide users effortlessly. We simulate user flows, A/B test interactions, and create motion languages that delight.",
+            "aiImpl": {
+                "title": "AI Implementation",
+                "desc": "Your competitors talk about AI. We deploy it to work for you.",
+                "extDesc": "We help companies automate routines, save labor costs, and improve customer experience using artificial intelligence and automation.",
                 "features": [
-                    "Figma Prototyping",
-                    "Motion Design System",
-                    "User Journey Mapping",
-                    "Accessibility (WCAG 2.1)"
+                    "Web AI Agents (Chatbots 2.0)",
+                    "Process Automation (Email/CRM)",
+                    "Company \"Brain\" (Knowledge Base)",
+                    "Data Analysis"
                 ]
             },
-            "itArch": {
-                "title": "IT Architecture",
-                "desc": "Robust backend systems handling millions of requests.",
-                "extDesc": "The invisible backbone of your business. We design database schemas and API layers that are resilient, secure, and fast. Whether SQL or NoSQL, GraphQL or REST, we choose the right tool for the mission.",
+            "socialMedia": {
+                "title": "Social Media Management",
+                "desc": "Building your brand where your customers are.",
+                "extDesc": "Social media isn't about random photo posting. It is a systematic channel for building trust and driving sales.",
                 "features": [
-                    "Database Optimization",
-                    "API Gateway Design",
-                    "Serverless Functions",
-                    "Automated CI/CD Pipelines"
+                    "Strategy & Planning",
+                    "Instagram & TikTok",
+                    "Content Creation (Graphics/Copy/Stories)",
+                    "Community Management"
                 ]
             },
-            "productDesign": {
-                "title": "Product Design",
-                "desc": "From MVP to enterprise solutions, leading the entire lifecycle.",
-                "extDesc": "We turn napkin sketches into market leaders. Our product design methodology involves rapid iteration, user validation, and data-driven decision making. We help you find product-market fit faster.",
+            "marketing": {
+                "title": "General Marketing",
+                "desc": "Comprehensive strategy to get your product to people.",
+                "extDesc": "We don't rely on a single channel. We combine tools to maximize your Return on Investment (ROI) and brand visibility.",
                 "features": [
-                    "MVP Strategy",
-                    "Market Analysis",
-                    "Iterative Design Sprints",
-                    "Growth Hacking"
+                    "Performance Advertising (PPC)",
+                    "Strategic Consulting",
+                    "Copywriting & Content",
+                    "Brand Building"
                 ]
             },
-            "optimization": {
-                "title": "Optimization",
-                "desc": "Refactoring legacy systems for speed and security.",
-                "extDesc": "Speed is a feature. We audit existing codebases to identify bottlenecks, security vulnerabilities, and technical debt. We then surgically refactor or rewrite critical components to restore peak performance.",
+            "droneVideo": {
+                "title": "Drone Filming & Editing",
+                "desc": "A view that sells. Professional aerial footage.",
+                "extDesc": "Drone footage adds prestige and perspective to your project that you simply can't get from the ground. Full service from flight to final edit.",
                 "features": [
-                    "Legacy Code Refactoring",
-                    "Security Audits",
-                    "Performance Tuning",
-                    "Bundle Size Reduction"
+                    "Real Estate Videos",
+                    "Inspection & Monitoring",
+                    "Promo Videos",
+                    "4K Quality & Stabilization"
                 ]
             }
         }
@@ -132,6 +143,7 @@
         "ctaTitle": "Let's create something",
         "ctaTitleHighlight": "exceptional",
         "ctaDesc": "Whether you have a groundbreaking idea or need to modernize existing infrastructure, we are here for you. Get in touch and let's discuss your vision.",
+        "startProject": "Start Collaboration",
         "writeUs": "Write to us",
         "callUs": "Call us",
         "form": {

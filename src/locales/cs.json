@@ -57,71 +57,93 @@
         "subtitle": "Akcelerované schopnosti",
         "moreInfo": "Více info",
         "initializeProtocol": "Inicializovat protokol",
+        "modal": {
+            "id": "ID:",
+            "systemOnline": "Systém Online",
+            "initiatingProtocol": "INICIALIZACE PROTOKOLU...",
+            "verifyingDependencies": "OVĚŘOVÁNÍ ZÁVISLOSTÍ...",
+            "moduleLoaded": "MODUL ÚSPĚŠNĚ NAČTEN.",
+            "overview": "Přehled",
+            "modulesFeatures": "Moduly a Funkce",
+            "detail": "Detail"
+        },
         "cards": {
             "webDev": {
-                "title": "Vývoj webů",
-                "desc": "Pixel-perfect weby pro škálování.",
-                "extDesc": "Stavíme digitální pevnosti. Náš balík pro vývoj webu využívá nejnovější technologie React, Next.js a WebGL k poskytování zážitků, které nejsou jen vidět, ale i cítit. Od SEO optimalizovaných vstupních stránek po komplexní PWA ekosystémy zajišťujeme načítání v řádu milisekund a 100% skóre v Lighthouse.",
+                "title": "Tvorba webu",
+                "desc": "Moderní weby, které nejen skvěle vypadají, ale hlavně prodávají.",
+                "extDesc": "Neděláme jen digitální vizitky. Tvoříme výkonné obchodní nástroje, které návštěvníka promění v zákazníka.",
                 "features": [
-                    "React / Next.js",
-                    "WebGL a 3D interaktivita",
-                    "Integrace Headless CMS",
-                    "Globální nasazení CDN"
+                    "Technologie na míru (WordPress / React / Next.js)",
+                    "Responzivní design (Mobile-First)",
+                    "Rychlost a Výkon",
+                    "SEO Ready",
+                    "Konverzní prvky"
                 ]
             },
-            "webApps": {
-                "title": "Webové aplikace",
-                "desc": "Komplexní SaaS platformy poháněné moderní infrastrukturou.",
-                "extDesc": "Škálovatelnost není dodatečný nápad; je to základ. Navrhujeme robustní SaaS platformy schopné zvládnout miliony souběžných uživatelů. Naše architektura mikroslužeb zajišťuje nasazení s nulovým výpadkem a nekonečné horizontální škálování.",
+            "appDev": {
+                "title": "Vývoj aplikací",
+                "desc": "Digitalizace vašeho podnikání. Od jednoduchých nástrojů po komplexní systémy.",
+                "extDesc": "Když krabicové řešení nestačí, postavíme vám software přesně na míru vašim procesům.",
                 "features": [
-                    "Architektura mikroslužeb",
-                    "Real-time Socket.io",
-                    "AWS / Azure Cloud Native",
-                    "Enterprise zabezpečení"
+                    "Interní firemní systémy",
+                    "Klientské portály",
+                    "Webové aplikace (SaaS)",
+                    "Propojování systémů (API)"
                 ]
             },
-            "uiUx": {
-                "title": "UI/UX Design",
-                "desc": "Kde se psychologie potkává s futuristickou estetikou.",
-                "extDesc": "Design je vdechnutí života do kódu. Náš proces začíná hlubokou empatií k uživateli a končí pixel-perfect rozhraními, která uživatele vedou bez námahy. Simulujeme uživatelské toky, testujeme interakce A/B a vytváříme pohybové jazyky, které potěší.",
+            "aiImpl": {
+                "title": "Implementace AI do firem",
+                "desc": "Vaše konkurence o AI mluví. My ji u vás nasadíme, aby vydělávala.",
+                "extDesc": "Pomáháme firmám automatizovat rutinu, šetřit mzdové náklady a zlepšovat zákaznickou zkušenost pomocí umělé inteligence.",
                 "features": [
-                    "Prototypování ve Figmě",
-                    "Systém pohybového designu",
-                    "Mapování cesty uživatele",
-                    "Přístupnost (WCAG 2.1)"
+                    "AI Agenti na web (Chatboti 2.0)",
+                    "Automatizace procesů (Email/CRM)",
+                    "Firemní \"Mozek\" (Znalostní báze)",
+                    "Analýza dat"
                 ]
             },
-            "itArch": {
-                "title": "IT Architektura",
-                "desc": "Robustní backend systémy zvládající miliony požadavků.",
-                "extDesc": "Neviditelná páteř vašeho podnikání. Navrhujeme schémata databází a vrstvy API, které jsou odolné, bezpečné a rychlé. Ať už jde o SQL nebo NoSQL, GraphQL nebo REST, vybíráme ten správný nástroj pro misi.",
+            "socialMedia": {
+                "title": "Správa sociálních sítí",
+                "desc": "Budujeme vaši značku tam, kde jsou vaši zákazníci.",
+                "extDesc": "Sociální sítě nejsou o náhodném přidávání fotek. Je to systematický kanál pro budování důvěry a prodeje.",
                 "features": [
-                    "Optimalizace databází",
-                    "Návrh API Gateway",
-                    "Serverless funkce",
-                    "Automatizované CI/CD pipelines"
+                    "Strategie a Plánování",
+                    "Instagram & TikTok",
+                    "Tvorba obsahu (Grafika/Copy/Stories)",
+                    "Community Management"
                 ]
             },
-            "productDesign": {
-                "title": "Produktový design",
-                "desc": "Od MVP po enterprise řešení, vedení celého životního cyklu.",
-                "extDesc": "Měníme náčrty na ubrousku na lídry trhu. Naše metodika produktového designu zahrnuje rychlou iteraci, validaci uživateli a rozhodování založené na datech. Pomáháme vám rychleji najít shodu produktu s trhem.",
+            "marketing": {
+                "title": "Obecný marketing",
+                "desc": "Komplexní strategie, jak dostat váš produkt k lidem.",
+                "extDesc": "Nespoléháme na jeden kanál. Kombinujeme nástroje tak, abychom maximalizovali návratnost investice (ROI).",
                 "features": [
-                    "Strategie MVP",
-                    "Analýza trhu",
-                    "Iterativní designové sprinty",
-                    "Growth Hacking"
+                    "Výkonnostní reklama (PPC)",
+                    "Strategické poradenství",
+                    "Copywriting a Content",
+                    "Brand Building"
                 ]
             },
-            "optimization": {
-                "title": "Optimalizace",
-                "desc": "Refaktoring starších systémů pro rychlost a bezpečnost.",
-                "extDesc": "Rychlost je funkce. Auditujeme existující kódové základny, abychom identifikovali úzká místa, bezpečnostní chyby a technologický dlh. Poté chirurgicky refaktorujeme nebo přepisujeme kritické komponenty, abychom obnovili špičkový výkon.",
+            "droneVideo": {
+                "title": "Natáčení a edit videí pomocí drona",
+                "desc": "Pohled, který prodává. Profesionální letecké záběry.",
+                "extDesc": "Záběry z dronu dodají vašemu projektu prestiž a perspektivu, kterou ze země nezískáte.",
                 "features": [
-                    "Refaktoring legacy kódu",
-                    "Bezpečnostní audity",
-                    "Ladění výkonu",
-                    "Redukce velikosti balíku"
+                    "Realitní videa",
+                    "Inspekce a Monitoring",
+                    "Promo videa",
+                    "Kvalita 4K a stabilizace"
+                ]
+            },
+            "videoProd": {
+                "title": "Pomoc s natáčením a následným editem videí",
+                "desc": "Video obsah, který zaujme v prvních 3 vteřinách.",
+                "extDesc": "V době krátkých videí je kvalita a dynamika klíčová. Postaráme se o celý proces od námětu po finální export.",
+                "features": [
+                    "Short-Form Content (Reels/TikTok)",
+                    "Firemní a Imageová videa",
+                    "Profesionální Postprodukce",
+                    "Scénář a Režie"
                 ]
             }
         }
@@ -132,6 +154,7 @@
         "ctaTitle": "Pojďme vytvořit něco",
         "ctaTitleHighlight": "výjimečného",
         "ctaDesc": "Ať už máte převratný nápad nebo potřebujete modernizovat stávající infrastrukturu, jsme tu pro vás. Ozvěte se nám a probereme vaši vizi.",
+        "startProject": "Zahájit spolupráci",
         "writeUs": "Napište nám",
         "callUs": "Zavolejte nám",
         "form": {

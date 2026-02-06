@@ -118,7 +118,7 @@ const Navbar = () => {
 
       {/* Bottom Left: Socials */}
       <div className="fixed bottom-0 left-0 p-8 z-50 hidden md:flex items-center gap-6">
-        <a href="#" className="hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all drop-shadow-[0_0_8px_rgba(4,255,247,0.6)] group">
+        <a href="https://www.instagram.com/itakk.cz/" target="_blank" rel="noopener noreferrer" className="hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all drop-shadow-[0_0_8px_rgba(4,255,247,0.6)] group">
           <Instagram size={20} className="stroke-[url(#neon-gradient)] group-hover:stroke-white transition-colors" />
         </a>
         <a href="#" className="hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all drop-shadow-[0_0_8px_rgba(4,255,247,0.6)] group">
@@ -162,7 +162,7 @@ const Navbar = () => {
                 <div>
                   <h3 className="text-gray-500 font-mono mb-4 text-sm tracking-widest">{t('navbar.socials')}</h3>
                   <div className="flex flex-col gap-2">
-                    <a href="#" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group">
+                    <a href="https://www.instagram.com/itakk.cz/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group">
                       <Instagram size={18} className="group-hover:stroke-neon-cyan transition-colors" />
                       <span className="text-sm font-mono group-hover:tracking-wider transition-all">{t('navbar.instagram')}</span>
                     </a>

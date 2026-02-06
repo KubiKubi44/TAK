@@ -38,7 +38,7 @@ const Footer = () => {
                     <div className="text-center md:text-left space-y-6">
                         <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow animate-rgb-flow font-mono text-xs uppercase tracking-widest border-b border-neon-cyan/20 pb-2 inline-block">{t('footer.externalChannels')}</h4>
                         <ul className="space-y-3 font-mono text-gray-400">
-                            <li><a href="#" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">Instagram</a></li>
+                            <li><a href="https://www.instagram.com/itakk.cz/" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">Instagram</a></li>
                             <li><a href="#" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">TikTok</a></li>
                             <li><a href="#" className="hover:text-white hover:shadow-[0_0_10px_rgba(255,255,255,0.5)] transition-all">LinkedIn</a></li>
                         </ul>

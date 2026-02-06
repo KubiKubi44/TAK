@@ -5,12 +5,12 @@ import TrustedLogos from '../components/TrustedLogos';
 
 const Home = () => {
     useHead({
-        title: 'Digitální studio pro webové aplikace | ITAKK',
+        title: 'Vývoj digitálních produktů a webových aplikací | TAK',
         meta: [
             { name: 'description', content: 'Jsme digitální studio zaměřené na návrh a vývoj moderních webových aplikací, které mají jasný cíl – pomáhat značkám růst a přinášet skutečné výsledky.' }
         ],
         link: [
-            { rel: 'canonical', href: 'https://itakk.cz/' }
+            { rel: 'canonical', href: 'https://www.itakk.cz/' }
         ]
     });
 
