@@ -1,43 +1,31 @@
-import React from "react";
-import { renderToString } from "react-dom/server";
-import { StaticRouter } from "react-router-dom";
-import { createUnhead } from "unhead";
-import { UnheadProvider } from "@unhead/react/client";
-import { renderSSRHead } from "@unhead/ssr";
-import "./i18n";
-import AppShell from "./AppShell";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
-export async function prerender(data) {
-    const url = data?.url || "/";
-    const head = createUnhead();
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import CustomCursor from "./components/CustomCursor";
+import GlobalBackground from "./components/GlobalBackground";
+import AppRoutes from "./AppRoutes";
 
-    const appHtml = renderToString(
-        <UnheadProvider head={head}>
-            <StaticRouter location={url}>
-                <AppShell />
-            </StaticRouter>
-        </UnheadProvider>
+export default function AppShell() {
+    const isPrerender =
+        typeof globalThis !== "undefined" && globalThis.__PRERENDER__ === true;
+
+    return (
+        <div className="bg-bg-dark min-h-screen text-white selection:bg-neon-cyan selection:text-black cursor-none flex flex-col relative z-0">
+            {!isPrerender && <GlobalBackground />}
+            {!isPrerender && <CustomCursor />}
+
+            <Navbar />
+
+            <main className="flex-grow">
+                <AppRoutes />
+            </main>
+
+            <Footer />
+
+            {!isPrerender && <Analytics />}
+            {!isPrerender && <SpeedInsights />}
+        </div>
     );
-
-    const { headTags, bodyTags, bodyTagsOpen } = await renderSSRHead(head);
-
-    // Parse headTags to extract title and create the object structure vite-prerender-plugin expects
-    const titleMatch = headTags.match(/<title>(.*?)<\/title>/);
-    const title = titleMatch ? titleMatch[1] : "";
-    // Remove title from headTags to avoid duplication, and pass the rest as an element
-    // We wrap it in a Set as the plugin iterates over it
-    const otherHeadTags = headTags.replace(/<title>.*?<\/title>/, '');
-
-    // vite-prerender-plugin expects: { lang, title, elements: Set<string|object> }
-    const pluginHead = {
-        lang: 'cs',
-        title: title, // Note: Plugin will encode this, so we assume unhead output is compatible or we might need decoding if double-encoding occurs
-        elements: new Set([otherHeadTags])
-    };
-
-    return {
-        html: `${bodyTagsOpen || ""}${appHtml}${bodyTags || ""}`,
-        head: pluginHead,
-        links: new Set(["/", "/o-nas", "/sluzby", "/portfolio", "/proces", "/kontakt"]),
-    };
 }
