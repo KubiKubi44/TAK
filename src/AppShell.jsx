@@ -1,37 +1,33 @@
-import React from "react";
-import { renderToString } from "react-dom/server";
-import { StaticRouter } from "react-router-dom/server";
-import { createUnhead } from "unhead";
-import { UnheadProvider } from "@unhead/react";
-import { renderSSRHead } from "@unhead/ssr";
-import "./i18n";
-import AppShell from "./AppShell";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
-// Flag used to disable heavy client-only effects during prerender
-globalThis.__PRERENDER__ = true;
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import CustomCursor from "./components/CustomCursor";
+import GlobalBackground from "./components/GlobalBackground";
+import AppRoutes from "./AppRoutes";
 
-export async function prerender(data) {
-    const url = data?.url || "/";
-    console.log("[prerender] rendering", url);
+export default function AppShell() {
+    const isPrerender =
+        typeof globalThis !== "undefined" && globalThis.__PRERENDER__ === true;
 
-    const head = createUnhead();
+    return (
+        <div className="bg-bg-dark min-h-screen text-white selection:bg-neon-cyan selection:text-black cursor-none flex flex-col relative z-0">
+            {/* Heavy client-only stuff OFF during prerender */}
+            {!isPrerender && <GlobalBackground />}
+            {!isPrerender && <CustomCursor />}
 
-    const appHtml = renderToString(
-        <UnheadProvider head={head}>
-            <StaticRouter location={url}>
-                <AppShell />
-            </StaticRouter>
-        </UnheadProvider>
+            <Navbar />
+
+            <main className="flex-grow">
+                <AppRoutes />
+            </main>
+
+            <Footer />
+
+            {/* Analytics only on client */}
+            {!isPrerender && <Analytics />}
+            {!isPrerender && <SpeedInsights />}
+        </div>
     );
-
-    // renderSSRHead is synchronous; no await needed
-    const { headTags, bodyTags, bodyTagsOpen } = renderSSRHead(head);
-
-    return {
-        // Keep mount target consistent with renderTarget "#root"
-        html: `${bodyTagsOpen || ""}<div id="root">${appHtml}</div>${bodyTags || ""}`,
-        // Let the plugin inject raw head tags (title/meta/link/script)
-        head: headTags || "",
-        links: new Set(["/", "/o-nas", "/sluzby", "/portfolio", "/proces", "/kontakt"]),
-    };
 }

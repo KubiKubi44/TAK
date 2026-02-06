@@ -1,31 +1,40 @@
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
+import React from "react";
+import { renderToString } from "react-dom/server";
+import { StaticRouter } from "react-router";
+import { createUnhead } from "unhead";
+import { renderSSRHead } from "@unhead/ssr";
+import { UnheadProvider } from "@unhead/react/client";
+import "./i18n";
+import AppShell from "./AppShell";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import CustomCursor from "./components/CustomCursor";
-import GlobalBackground from "./components/GlobalBackground";
-import AppRoutes from "./AppRoutes";
+globalThis.__PRERENDER__ = true;
 
-export default function AppShell() {
-    const isPrerender =
-        typeof globalThis !== "undefined" && globalThis.__PRERENDER__ === true;
+export async function prerender(data) {
+    const url = data?.url || "/";
+    console.log("[prerender] rendering", url);
 
-    return (
-        <div className="bg-bg-dark min-h-screen text-white selection:bg-neon-cyan selection:text-black cursor-none flex flex-col relative z-0">
-            {!isPrerender && <GlobalBackground />}
-            {!isPrerender && <CustomCursor />}
+    // create head instance for SSR
+    const head = createUnhead();
 
-            <Navbar />
+    // IMPORTANT:
+    // Your pages using `useHead()` rely on UnheadProvider on the client.
+    // For prerender, simplest stable approach is: don't try to inject runtime hooks here,
+    // just render HTML and keep index.html head as baseline.
+    // (If you want full per-page head SSR, we’ll wire a compatible provider after build passes.)
 
-            <main className="flex-grow">
-                <AppRoutes />
-            </main>
-
-            <Footer />
-
-            {!isPrerender && <Analytics />}
-            {!isPrerender && <SpeedInsights />}
-        </div>
+    const appHtml = renderToString(
+        <UnheadProvider head={head}>
+            <StaticRouter location={url}>
+                <AppShell />
+            </StaticRouter>
+        </UnheadProvider>
     );
+
+    const { headTags, bodyTags, bodyTagsOpen } = renderSSRHead(head);
+
+    return {
+        html: `${bodyTagsOpen || ""}<div id="root">${appHtml}</div>${bodyTags || ""}`,
+        head: headTags || "",
+        links: new Set(["/", "/o-nas", "/sluzby", "/portfolio", "/proces", "/kontakt"]),
+    };
 }
