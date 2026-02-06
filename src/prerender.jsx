@@ -1,7 +1,4 @@
 import React from "react";
-
-globalThis.__PRERENDER__ = true;
-
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import { createUnhead } from "unhead";
