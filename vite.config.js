@@ -22,19 +22,3 @@ export default defineConfig({
     }),
   ].filter(Boolean),
 })
-tailwindcss(),
-  vitePrerenderPlugin({
-    renderTarget: "#root",
-    additionalPrerenderRoutes: [
-      "/",
-      "/o-nas",
-      "/sluzby",
-      "/portfolio",
-      "/proces",
-      "/kontakt",
-    ],
-    // Disable on Vercel to debug hang
-    disabled: !!process.env.VERCEL,
-  }),
-  ],
-})
