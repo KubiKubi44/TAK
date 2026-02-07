@@ -1,10 +1,9 @@
 {
     "rewrites": [
         {
-            "source": "/(.*)",
+            "source": "/((?!assets/|logos/|.*\\..*).*)",
             "destination": "/index.html"
         }
     ],
-    "cleanUrls": true,
     "framework": "vite"
 }
