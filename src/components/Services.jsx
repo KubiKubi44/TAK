@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 
 const ServiceModal = ({ service, onClose }) => {
     const { t } = useTranslation();
-
     const navigate = useNavigate();
 
     // Lock body scroll on mount
@@ -34,190 +33,131 @@ const ServiceModal = ({ service, onClose }) => {
         navigate('/kontakt');
     };
 
-    const borderColors = {
-        "neon-cyan": "border-neon-cyan",
-        "neon-magenta": "border-neon-magenta",
-        "neon-yellow": "border-neon-yellow"
-    };
-
-    const textColors = {
-        "neon-cyan": "text-neon-cyan",
-        "neon-magenta": "text-neon-magenta",
-        "neon-yellow": "text-neon-yellow"
-    };
-
-    const buttonBgColors = {
-        "neon-cyan": "bg-neon-cyan",
-        "neon-magenta": "bg-neon-magenta",
-        "neon-yellow": "bg-neon-yellow"
-    };
-
-    const gradientColors = {
-        "neon-cyan": "from-neon-cyan/20 via-transparent to-transparent",
-        "neon-magenta": "from-neon-magenta/20 via-transparent to-transparent",
-        "neon-yellow": "from-neon-yellow/20 via-transparent to-transparent"
-    };
-
-    // Helper to get safe Tailwind classes
-    const getBadgeStyle = (colorKey) => {
-        switch (colorKey) {
-            case "neon-cyan": return "bg-neon-cyan/10 border-neon-cyan/20 text-neon-cyan";
-            case "neon-magenta": return "bg-neon-magenta/10 border-neon-magenta/20 text-neon-magenta";
-            case "neon-yellow": return "bg-neon-yellow/10 border-neon-yellow/20 text-neon-yellow";
-            default: return "bg-white/10 border-white/20 text-white";
+    const colors = {
+        "neon-cyan": {
+            border: "border-neon-cyan/50",
+            glow: "shadow-[0_0_30px_-5px_rgba(4,255,247,0.3)]",
+            text: "text-neon-cyan",
+            bg: "bg-neon-cyan",
+            gradient: "from-neon-cyan"
+        },
+        "neon-magenta": {
+            border: "border-neon-magenta/50",
+            glow: "shadow-[0_0_30px_-5px_rgba(247,4,255,0.3)]",
+            text: "text-neon-magenta",
+            bg: "bg-neon-magenta",
+            gradient: "from-neon-magenta"
+        },
+        "neon-yellow": {
+            border: "border-neon-yellow/50",
+            glow: "shadow-[0_0_30px_-5px_rgba(255,247,4,0.3)]",
+            text: "text-neon-yellow",
+            bg: "bg-neon-yellow",
+            gradient: "from-neon-yellow"
         }
     };
 
-    const getIconContainerStyle = (colorKey) => {
-        switch (colorKey) {
-            case "neon-cyan": return "text-neon-cyan bg-neon-cyan/5 border-neon-cyan/20";
-            case "neon-magenta": return "text-neon-magenta bg-neon-magenta/5 border-neon-magenta/20";
-            case "neon-yellow": return "text-neon-yellow bg-neon-yellow/5 border-neon-yellow/20";
-            default: return "text-white bg-white/5 border-white/20";
-        }
-    }
+    const theme = colors[service.color];
 
     return createPortal(
-        <div className="fixed inset-0 z-[200] flex items-end justify-center sm:items-center p-0 sm:p-4 md:p-8">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-8">
+            {/* Backdrop */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={onClose}
-                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             />
 
+            {/* Modal Container */}
             <motion.div
-                layoutId={`service-card-${service.id}`}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: "spring", duration: 0.5, bounce: 0.3 }}
                 className={`
-                    relative w-full max-w-5xl rounded-t-[2rem] sm:rounded-[2rem]
-                    bg-[#0a0a0a]/90 backdrop-blur-2xl border ${borderColors[service.color]} border-opacity-50
-                    flex flex-col md:flex-row shadow-2xl 
-                    h-[85vh] max-h-[85vh] overflow-hidden
+                    relative w-full max-w-5xl rounded-xl md:rounded-[2rem] overflow-hidden
+                    bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/10
+                    shadow-2xl flex flex-col max-h-[90vh]
                 `}
             >
-                {/* Decorative Background Effects */}
-                <div className={`absolute top-0 left-0 w-full h-full bg-gradient-to-br ${gradientColors[service.color]} opacity-30 pointer-events-none`} />
-                <div className="absolute inset-0 opacity-[0.15] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none brightness-100 contrast-150"></div>
+                {/* Decorative Glow */}
+                <div className={`absolute -top-[200px] -right-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-br ${theme.gradient} to-transparent opacity-20 blur-[100px] pointer-events-none`} />
+                <div className={`absolute -bottom-[200px] -left-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tr ${theme.gradient} to-transparent opacity-10 blur-[100px] pointer-events-none`} />
 
-                {/* Close Button */}
-                <button
-                    onClick={onClose}
-                    className="absolute top-6 right-6 z-50 p-2 rounded-full bg-black/40 md:bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all border border-white/10 shadow-lg"
-                >
-                    <X size={24} />
-                </button>
+                {/* Noise Texture */}
+                <div className="absolute inset-0 opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none mix-blend-overlay" />
 
-                {/* SCROLLABLE WRAPPER (Unified on Mobile, Left-side on Desktop) */}
-                <div className="flex flex-col md:flex-row w-full h-full overflow-hidden">
 
-                    {/* LEFT: Visual & Title (FIXED on Desktop) */}
-                    <div className="relative w-full md:w-2/5 p-6 md:p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 bg-white/5 shrink-0 overflow-y-auto md:overflow-hidden no-scrollbar">
-                        <div>
-                            {/* Mobile Compact Header Header */}
-                            <div className="flex items-center gap-3 mb-6 md:mb-8">
-                                <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-400">
-                                    <span>{t('services.modal.id', { defaultValue: 'ID:' })} {service.id}</span>
-                                </div>
-                                <div className={`flex items-center gap-2 px-3 py-1 rounded-full border text-[10px] font-bold uppercase tracking-wider ${getBadgeStyle(service.color)}`}>
-                                    <Activity size={12} />
-                                    <span>{t('services.modal.systemOnline', { defaultValue: 'System Online' })}</span>
-                                </div>
-                            </div>
-
-                            <div className="mb-2 md:mb-8 flex md:block items-center gap-4">
-                                <div className={`
-                                    w-14 h-14 md:w-20 md:h-20 rounded-2xl flex items-center justify-center mb-0 md:mb-6
-                                    bg-gradient-to-br from-white/10 to-transparent border border-white/10
-                                    ${getIconContainerStyle(service.color)}
-                                    shrink-0
-                                `}>
-                                    <service.icon size={28} className="md:w-10 md:h-10" />
-                                </div>
-                                <h2 className="text-2xl md:text-5xl font-black uppercase text-white leading-[0.9] tracking-tighter shadow-black drop-shadow-lg">
-                                    {service.title}
-                                </h2>
-                            </div>
+                {/* HEADER: Title & Close Button */}
+                <div className="relative z-50 flex items-center justify-between p-4 md:p-10 border-b border-white/10 bg-white/5 backdrop-blur-md">
+                    <div className="w-full pr-16 md:pr-24">
+                        <div className="flex items-center gap-3 mb-2 md:mb-4">
+                            <div className={`w-2 h-2 rounded-full ${theme.bg} shadow-[0_0_10px_currentColor]`} />
+                            <span className="font-mono text-[10px] md:text-xs tracking-widest text-gray-400 opacity-70">ID: {service.id}</span>
                         </div>
-
-                        {/* Stylized "Code" Decor (Desktop Only) */}
-                        <div className="hidden md:block font-mono text-[10px] text-gray-600 space-y-1 opacity-50">
-                            <p>{'>'} {t('services.modal.initiatingProtocol', { defaultValue: 'INITIATING PROTOCOL...' })}</p>
-                            <p>{'>'} {t('services.modal.verifyingDependencies', { defaultValue: 'VERIFYING DEPENDENCIES...' })}</p>
-                            <p>{'>'} {t('services.modal.moduleLoaded', { defaultValue: 'MODULE LOADED SUCCESSFULLY.' })}</p>
-                        </div>
+                        <h2
+                            className="text-2xl md:text-5xl font-black uppercase text-white leading-none tracking-tighter break-words"
+                            style={{ fontFamily: 'var(--font-syne)' }}
+                        >
+                            {service.title}
+                        </h2>
                     </div>
 
-                    {/* RIGHT: Content & Features (SCROLLABLE on Desktop) */}
-                    <div className="w-full md:w-3/5 p-6 md:p-10 md:p-12 flex flex-col overflow-y-auto custom-scrollbar">
-                        <div className="mb-2">
-                            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-                                <Terminal size={14} />
-                                {t('services.modal.overview', { defaultValue: 'Overview' })}
+                    <button
+                        onClick={onClose}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 md:p-4 rounded-full bg-white/5 hover:bg-white/10 text-white/50 hover:text-white transition-colors border border-white/5 hover:border-white/20 group z-50"
+                    >
+                        <X size={24} className="md:w-6 md:h-6 group-hover:rotate-90 transition-transform duration-300" />
+                    </button>
+                </div>
+
+
+                {/* BODY: Full Width Content */}
+                <div className="flex flex-col flex-grow overflow-hidden relative z-10">
+
+                    {/* Content */}
+                    <div className="bg-black/20 flex flex-col w-full h-full overflow-hidden">
+                        <div className="p-5 md:p-12 overflow-y-auto custom-scrollbar flex-grow">
+                            <h3 className="text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-[0.2em] mb-4 md:mb-6 flex items-center gap-3">
+                                <span className={theme.text}>//</span> Mission Brief
                             </h3>
-                            <p className="text-base md:text-xl text-gray-200 leading-relaxed font-light">
+
+                            <p className="text-sm md:text-lg text-gray-300 leading-relaxed font-light mb-8 md:mb-12">
                                 {service.extDesc || service.description}
                             </p>
-                        </div>
 
-                        <div className="w-full h-px bg-gradient-to-r from-white/10 to-transparent my-6 md:my-8" />
-
-                        <div className="mb-8">
-                            <h3 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6 flex items-center gap-2">
-                                <Cpu size={14} />
-                                {t('services.modal.modulesFeatures', { defaultValue: 'Modules & Features' })}
+                            <h3 className="text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-[0.2em] mb-4 md:mb-6 flex items-center gap-3">
+                                <span className={theme.text}>//</span> Modules
                             </h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                                {service.features.map((feature, i) => (
-                                    <div key={i} className="group flex items-start gap-3 p-3 rounded-lg bg-white/5 md:bg-transparent md:hover:bg-white/5 transition-colors">
-                                        <div className={`mt-0.5 w-1.5 h-1.5 rounded-full ${buttonBgColors[service.color]} shadow-[0_0_10px_currentColor]`} />
-                                        <span className="text-sm font-medium text-gray-300 md:group-hover:text-white transition-colors">
-                                            {feature}
-                                        </span>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+                                {Array.isArray(service.features) && service.features.map((feature, i) => (
+                                    <div key={i} className="group flex items-center gap-3 md:gap-4 p-2 md:p-3 rounded-lg bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
+                                        <div className={`w-1 md:w-1.5 h-1 md:h-1.5 rounded-full ${theme.bg} opacity-50 group-hover:opacity-100 transition-opacity`} />
+                                        <span className="text-xs md:text-sm text-gray-400 group-hover:text-gray-200 transition-colors">{feature}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Spacer for mobile to avoid bottom navigation/safe area overlap */}
-                        <div className="h-20 md:h-0" />
+                        {/* Footer Action */}
+                        <div className="p-4 md:p-8 border-t border-white/5 bg-white/[0.02]">
+                            <button
+                                onClick={handleStartProject}
+                                className={`
+                                    group w-full py-3 md:py-4 px-6 rounded-xl flex items-center justify-center gap-3
+                                    font-bold uppercase tracking-widest text-xs md:text-sm text-black
+                                    ${theme.bg} hover:brightness-110 active:scale-[0.98] transition-all
+                                    shadow-[0_0_20px_-5px_currentColor] opacity-90 hover:opacity-100
+                                `}
+                            >
+                                <span>Initialize Project</span>
+                                <ArrowRight size={16} className="md:w-[18px] md:h-[18px] group-hover:translate-x-1 transition-transform" />
+                            </button>
+                        </div>
                     </div>
-                </div>
-
-                {/* STICKY BOTTOM ACTION BAR (Mobile Only) - Desktop has it inline */}
-                <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent md:hidden pointer-events-none">
-                    <button
-                        onClick={handleStartProject}
-                        className={`
-                        pointer-events-auto w-full py-4 px-6 rounded-xl flex items-center justify-between
-                        font-bold uppercase tracking-widest text-black shadow-lg
-                        active:scale-[0.98] transition-all duration-300
-                        ${buttonBgColors[service.color]}
-                    `}>
-                        <span className="flex items-center gap-3">
-                            <Zap size={20} fill="currentColor" />
-                            {t('contact.startProject', { defaultValue: 'Zahájit spolupráci' })}
-                        </span>
-                        <ArrowRight size={20} />
-                    </button>
-                </div>
-
-                {/* DESKTOP INLINE ACTION (Hidden on Mobile) */}
-                <div className="hidden md:block absolute bottom-12 right-12 left-[40%] pl-12 pointer-events-none">
-                    <button
-                        onClick={handleStartProject}
-                        className={`
-                        pointer-events-auto w-full py-4 px-6 rounded-xl flex items-center justify-between
-                        font-bold uppercase tracking-widest text-black shadow-lg
-                        hover:scale-[1.02] active:scale-[0.98] transition-all duration-300
-                        ${buttonBgColors[service.color]}
-                    `}>
-                        <span className="flex items-center gap-3">
-                            <Zap size={20} fill="currentColor" />
-                            {t('contact.startProject', { defaultValue: 'Zahájit spolupráci' })}
-                        </span>
-                        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
                 </div>
             </motion.div>
         </div>,
@@ -420,6 +360,7 @@ const Services = () => {
             <AnimatePresence>
                 {selectedService && (
                     <ServiceModal
+                        key="service-modal"
                         service={selectedService}
                         onClose={() => setSelectedService(null)}
                     />
