@@ -258,7 +258,7 @@ const SpotlightCard = ({ service, index, onClick }) => {
 
                 <div className="border-t border-white/10 pt-6 mt-auto">
                     <div className="flex flex-wrap gap-2 mb-6">
-                        {service.features.slice(0, 3).map((feature, i) => (
+                        {Array.isArray(service.features) && service.features.slice(0, 3).map((feature, i) => (
                             <span key={i} className="text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded bg-white/5 text-gray-500 border border-white/5 md:group-hover:border-white/10 md:group-hover:text-gray-400 transition-colors">
                                 {feature}
                             </span>
