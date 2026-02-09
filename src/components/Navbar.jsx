@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, ArrowRight, Instagram, Linkedin, Facebook, Mail } from 'lucide-react';
 import { NavLink, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -8,24 +8,6 @@ import LanguageSwitcher from './LanguageSwitcher';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
-
-  // Custom TikTok Icon
-  const TikTokIcon = ({ size = 20, className = "" }) => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-    </svg>
-  );
 
   const navLinks = [
     { name: t('navbar.home'), href: '/' },
@@ -121,10 +103,10 @@ const Navbar = () => {
         <a href="https://www.instagram.com/itakk.cz/" target="_blank" rel="noopener noreferrer" className="hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all drop-shadow-[0_0_8px_rgba(4,255,247,0.6)] group">
           <Instagram size={20} className="stroke-[url(#neon-gradient)] group-hover:stroke-white transition-colors" />
         </a>
-        <a href="#" className="hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all drop-shadow-[0_0_8px_rgba(4,255,247,0.6)] group">
-          <TikTokIcon size={20} className="stroke-[url(#neon-gradient)] group-hover:stroke-white transition-colors" />
+        <a href="https://www.facebook.com/profile.php?id=61587909838380" target="_blank" rel="noopener noreferrer" className="hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all drop-shadow-[0_0_8px_rgba(4,255,247,0.6)] group">
+          <Facebook size={20} className="stroke-[url(#neon-gradient)] group-hover:stroke-white transition-colors" />
         </a>
-        <a href="#" className="hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all drop-shadow-[0_0_8px_rgba(4,255,247,0.6)] group">
+        <a href="https://www.linkedin.com/company/itakk-cz/" target="_blank" rel="noopener noreferrer" className="hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all drop-shadow-[0_0_8px_rgba(4,255,247,0.6)] group">
           <Linkedin size={20} className="stroke-[url(#neon-gradient)] group-hover:stroke-white transition-colors" />
         </a>
       </div>
@@ -166,11 +148,11 @@ const Navbar = () => {
                       <Instagram size={18} className="group-hover:stroke-neon-cyan transition-colors" />
                       <span className="text-sm font-mono group-hover:tracking-wider transition-all">{t('navbar.instagram')}</span>
                     </a>
-                    <a href="#" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group">
-                      <TikTokIcon size={18} className="group-hover:stroke-neon-magenta transition-colors" />
-                      <span className="text-sm font-mono group-hover:tracking-wider transition-all">{t('navbar.tiktok')}</span>
+                    <a href="https://www.facebook.com/profile.php?id=61587909838380" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group">
+                      <Facebook size={18} className="group-hover:stroke-neon-magenta transition-colors" />
+                      <span className="text-sm font-mono group-hover:tracking-wider transition-all">Facebook</span>
                     </a>
-                    <a href="#" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group">
+                    <a href="https://www.linkedin.com/company/itakk-cz/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group">
                       <Linkedin size={18} className="group-hover:stroke-neon-yellow transition-colors" />
                       <span className="text-sm font-mono group-hover:tracking-wider transition-all">{t('navbar.linkedin')}</span>
                     </a>
