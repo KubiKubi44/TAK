@@ -46,10 +46,17 @@
         },
         "benefits": {
             "individual": "Individual Approach",
+            "individualDesc": "We approach every project as a partnership. Your goals become our goals, and we find the best path to achieve them.",
             "transparent": "Transparent Process",
+            "transparentDesc": "No hidden costs or technical jargon. We communicate clearly, regularly, and keep you in the loop at every stage.",
             "quality": "Focus on Quality",
+            "qualityDesc": "We don't settle for average. Every detail, from design to the last line of code, undergoes rigorous quality control.",
             "tech": "Modern Technology",
-            "scalable": "Scalable Solutions"
+            "techDesc": "We use the latest technologies and frameworks to ensure your website is fast, secure, and future-proof.",
+            "scalable": "Scalable Solutions",
+            "scalableDesc": "We build solutions that grow with you. Our architecture is ready for future expansion without the need to rebuild everything.",
+            "results": "Result Oriented",
+            "resultsDesc": "We don't build websites just for the sake of it. We focus on ensuring your investment delivers real business impact and ROI."
         }
     },
     "services": {

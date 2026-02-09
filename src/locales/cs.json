@@ -46,10 +46,17 @@
         },
         "benefits": {
             "individual": "Individuální přístup",
+            "individualDesc": "Ke každému projektu přistupujeme jako k partnerství. Vaše cíle se stávají našimi cíli a hledáme nejlepší cestu k jejich dosažení.",
             "transparent": "Transparentní proces",
+            "transparentDesc": "Žádné skryté náklady ani technický newspeak. Komunikujeme jasně, pravidelně a udržujeme vás v obraze v každé fázi vývoje.",
             "quality": "Důraz na kvalitu",
+            "qualityDesc": "Nespokojíme se s průměrem. Každý detail, od designu po poslední řádek kódu, prochází přísnou kontrolou kvality.",
             "tech": "Moderní technologie",
-            "scalable": "Škálovatelné řešení"
+            "techDesc": "Využíváme nejnovější technologie a frameworky, které zajišťují, že váš web bude rychlý, bezpečný a připravený na budoucnost.",
+            "scalable": "Škálovatelné řešení",
+            "scalableDesc": "Stavíme řešení, která rostou s vámi. Naše architektura je připravena na budoucí rozšiřování bez nutnosti vše předělávat.",
+            "results": "Orientace na výsledky",
+            "resultsDesc": "Neděláme weby jen tak. Zaměřujeme se na to, aby vaše investice přinesla reálný obchodní dopad a návratnost."
         }
     },
     "services": {

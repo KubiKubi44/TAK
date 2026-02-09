@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import {
     Layout, Palette, Code, Smartphone, Zap,
     Database, LifeBuoy, User, MessageSquare,
-    Award, Cpu, TrendingUp, Search
+    Award, Cpu, TrendingUp, Search, Target
 } from 'lucide-react';
 import Section from './Section';
 import SectionTitle from './SectionTitle';
@@ -11,22 +11,13 @@ import { useTranslation } from 'react-i18next';
 const About = () => {
     const { t } = useTranslation();
 
-    const services = [
-        { icon: Layout, title: t('about.services.ux') },
-        { icon: Palette, title: t('about.services.ui') },
-        { icon: Code, title: t('about.services.webDev') },
-        { icon: Smartphone, title: t('about.services.responsive') },
-        { icon: Search, title: t('about.services.seo') },
-        { icon: Database, title: t('about.services.api') },
-        { icon: LifeBuoy, title: t('about.services.support') }
-    ];
-
     const benefits = [
-        { icon: User, title: t('about.benefits.individual') },
-        { icon: MessageSquare, title: t('about.benefits.transparent') },
-        { icon: Award, title: t('about.benefits.quality') },
-        { icon: Cpu, title: t('about.benefits.tech') },
-        { icon: TrendingUp, title: t('about.benefits.scalable') }
+        { icon: User, title: t('about.benefits.individual'), desc: t('about.benefits.individualDesc') },
+        { icon: MessageSquare, title: t('about.benefits.transparent'), desc: t('about.benefits.transparentDesc') },
+        { icon: Award, title: t('about.benefits.quality'), desc: t('about.benefits.qualityDesc') },
+        { icon: Cpu, title: t('about.benefits.tech'), desc: t('about.benefits.techDesc') },
+        { icon: TrendingUp, title: t('about.benefits.scalable'), desc: t('about.benefits.scalableDesc') },
+        { icon: Target, title: t('about.benefits.results'), desc: t('about.benefits.resultsDesc') }
     ];
 
     return (
@@ -68,63 +59,42 @@ const About = () => {
                     </div>
                 </div>
 
-                {/* 2. COMPACT FEATURES SECTION (Redesigned) */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {/* 2. EXPANDED BENEFITS SECTION (Redesigned) */}
+                <div>
+                    <SectionTitle
+                        title={t('about.whyUs')}
+                        align="left"
+                    />
 
-                    {/* Left: Services (Holo Cards) */}
-                    <div>
-                        <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                            <code className="text-neon-cyan">&lt;</code> {t('about.whatWeOffer')} <code className="text-neon-cyan">/&gt;</code>
-                        </h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {services.map((s, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1 }}
-                                    className="group relative overflow-hidden bg-black/40 border border-white/5 p-4 rounded-xl hover:border-neon-cyan/50 hover:shadow-[0_0_15px_rgba(4,255,247,0.15)] transition-all duration-300"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/0 via-neon-cyan/5 to-neon-cyan/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                                    <div className="flex items-center gap-3 relative z-10">
-                                        <div className="text-gray-400 group-hover:text-neon-cyan transition-colors">
-                                            <s.icon size={20} />
-                                        </div>
-                                        <span className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors">{s.title}</span>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {benefits.map((b, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="group relative p-8 bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-white/[0.04] hover:border-neon-magenta/30 transition-all duration-300 flex flex-col h-full"
+                            >
+                                {/* Hover Gradient */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-neon-magenta/0 via-neon-magenta/0 to-neon-magenta/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+
+                                <div className="relative z-10">
+                                    <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-neon-magenta mb-6 group-hover:scale-110 group-hover:bg-neon-magenta group-hover:text-black transition-all duration-300">
+                                        <b.icon size={24} />
                                     </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
 
-                    {/* Right: Benefits (Stylized Vertical List) */}
-                    <div>
-                        <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                            <span className="text-neon-magenta">#</span> {t('about.whyUs')}
-                        </h3>
-                        <div className="space-y-4">
-                            {benefits.map((b, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1 }}
-                                    className="group flex items-center justify-between p-4 bg-white/[0.02] border-l-2 border-transparent hover:border-neon-magenta hover:bg-neon-magenta/[0.05] transition-all duration-300"
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <div className="p-2 rounded-lg bg-white/5 text-neon-magenta group-hover:bg-neon-magenta group-hover:text-black transition-colors">
-                                            <b.icon size={18} />
-                                        </div>
-                                        <span className="text-gray-300 font-medium group-hover:text-white transition-colors">{b.title}</span>
-                                    </div>
-                                    <div className="h-1 w-1 rounded-full bg-gray-600 group-hover:bg-neon-magenta group-hover:shadow-[0_0_8px_#F704FF] transition-all"></div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
+                                    <h4 className="text-xl font-bold text-white mb-4 group-hover:text-neon-magenta transition-colors">
+                                        {b.title}
+                                    </h4>
 
+                                    <p className="text-gray-400 leading-relaxed text-sm">
+                                        {b.desc}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
 
             </div>
