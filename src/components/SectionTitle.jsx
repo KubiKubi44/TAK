@@ -3,15 +3,17 @@ import { motion } from 'framer-motion';
 const SectionTitle = ({ title, subtitle, align = "center" }) => {
     return (
         <div className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}>
-            <motion.span
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="text-neon-cyan font-medium tracking-wider text-sm uppercase mb-2 block"
-            >
-                {subtitle}
-            </motion.span>
+            {subtitle && (
+                <motion.span
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="text-neon-cyan font-medium tracking-wider text-sm uppercase mb-2 block"
+                >
+                    {subtitle}
+                </motion.span>
+            )}
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
